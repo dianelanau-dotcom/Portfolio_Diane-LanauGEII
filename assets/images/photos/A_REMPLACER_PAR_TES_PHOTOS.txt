@@ -1,0 +1,9 @@
+Dossier prévu pour les vraies photos du portfolio.
+
+Le site utilise déjà les fichiers .jpg de ce dossier.
+Pour remplacer une image :
+1. Garde exactement le même nom de fichier.
+2. Remplace le placeholder .jpg par ta vraie photo.
+3. Recharge index.html.
+
+Exemple : remplace rafale-ares.jpg par ta capture ARES, en gardant le nom rafale-ares.jpg.

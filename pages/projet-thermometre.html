@@ -1,0 +1,876 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projet thermomètre de bain avec LEDs - Portfolio Diane Lanau BUT GEII." />
+  <title>Thermomètre de bain avec LEDs | Diane Lanau</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../script.js"></script>
+
+  <style>
+    :root {
+      --fond-page: #fffdfb;
+      --fond-doux: #fbf7f5;
+      --fond-carte: #ffffff;
+      --rose-poudre: #d7a7b3;
+      --rose-poudre-clair: #f7eef1;
+      --rose-poudre-fonce: #ad6f7f;
+      --bleu-geii: #24476f;
+      --bleu-geii-clair: #edf3f9;
+      --texte-principal: #1f2328;
+      --texte-secondaire: #4b5563;
+      --bordure: rgba(36, 71, 111, 0.13);
+      --ombre: 0 12px 28px rgba(31, 35, 40, 0.07);
+      --radius-grand: 20px;
+      --radius-moyen: 16px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body.project-page {
+      color: var(--texte-principal);
+      background: var(--fond-page);
+      line-height: 1.62;
+    }
+
+    .project-hero {
+      padding: 96px 0 44px;
+      background: linear-gradient(180deg, #fffdfb 0%, #fbf7f5 100%);
+    }
+
+    .project-hero-grid {
+      align-items: center;
+    }
+
+    .project-hero h1 {
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+      margin-bottom: 12px;
+    }
+
+    .project-hero p {
+      color: var(--texte-secondaire);
+    }
+
+    .project-cover {
+      border-radius: var(--radius-grand);
+      border: 1px solid var(--bordure);
+      box-shadow: var(--ombre);
+      max-height: 390px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .summary-grid {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .summary-card {
+      padding: 14px 16px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--bordure);
+      color: var(--bleu-geii);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(31, 35, 40, 0.05);
+    }
+
+    .case-section {
+      padding: 52px 0;
+    }
+
+    .anchor-section,
+    .skill-section {
+      scroll-margin-top: 90px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: 285px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .case-sidebar {
+      position: sticky;
+      top: 92px;
+      padding: 22px;
+      background: linear-gradient(135deg, #ffffff, var(--rose-poudre-clair));
+    }
+
+    .case-sidebar .number {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--bleu-geii);
+      color: white;
+      font-weight: 900;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    .case-sidebar h2 {
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .case-sidebar p {
+      color: var(--texte-secondaire);
+      font-size: 0.92rem;
+    }
+
+    .case-content {
+      display: grid;
+      gap: 18px;
+    }
+
+    .case-content > .card,
+    .section-card {
+      padding: 26px;
+    }
+
+    .case-content h3,
+    .section-card h3 {
+      font-size: 1.04rem;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .case-content p,
+    .section-card p,
+    .compact-list,
+    .action-list {
+      color: var(--texte-secondaire);
+    }
+
+    .section {
+      padding: 42px 0;
+    }
+
+    .project-container {
+      width: min(1080px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section-card {
+      border: 1px solid var(--bordure);
+      box-shadow: var(--ombre);
+      border-radius: var(--radius-grand);
+      background: white;
+    }
+
+    .skill-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .skill-code {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--bleu-geii);
+      color: white;
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-title h2 {
+      font-size: clamp(1.1rem, 2vw, 1.42rem);
+      letter-spacing: -0.025em;
+      margin: 0;
+    }
+
+    .content-flow {
+      display: grid;
+      gap: 16px;
+    }
+
+    .compact-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .compact-list li,
+    .action-list li {
+      margin-bottom: 7px;
+    }
+
+    .evidence-box {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: var(--radius-moyen);
+      border: 1px solid var(--bordure);
+      background: linear-gradient(135deg, var(--rose-poudre-clair), var(--bleu-geii-clair));
+    }
+
+    .evidence-box h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      color: var(--texte-principal);
+    }
+
+    .evidence-box p {
+      margin: 0;
+      color: var(--texte-secondaire);
+    }
+
+    .problem-solution {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .problem-solution article {
+      border: 1px solid var(--bordure);
+      border-radius: var(--radius-moyen);
+      padding: 18px;
+      background: #fff;
+    }
+
+    .image-row,
+    .image-suggestions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .photo-slot {
+      margin: 0;
+      border-radius: var(--radius-moyen);
+      overflow: hidden;
+      border: 1px solid var(--bordure);
+      background: #fff;
+    }
+
+    .photo-slot img {
+      display: block;
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .photo-slot figcaption {
+      padding: 10px 12px;
+      color: var(--texte-secondaire);
+      font-size: 0.86rem;
+    }
+
+    .image-placeholder {
+      min-height: 150px;
+      border-radius: var(--radius-moyen);
+      border: 1px dashed rgba(36, 71, 111, 0.24);
+      background: linear-gradient(135deg, rgba(247, 238, 241, 0.7), rgba(237, 243, 249, 0.75));
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 16px;
+      color: var(--texte-secondaire);
+      font-size: 0.9rem;
+    }
+
+    .two-soft-columns,
+    .transversal-grid,
+    .retrospective-grid,
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .two-soft-columns,
+    .transversal-grid,
+    .retrospective-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .gallery .image-placeholder {
+      min-height: 170px;
+    }
+
+    .section-heading.center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .page-footer {
+      padding: 42px 0 70px;
+      text-align: center;
+    }
+
+    .page-footer a {
+      color: var(--bleu-geii);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .page-footer a:hover {
+      color: var(--rose-poudre-fonce);
+    }
+
+    @media (max-width: 900px) {
+      .case-grid,
+      .image-row,
+      .image-suggestions,
+      .two-soft-columns,
+      .transversal-grid,
+      .retrospective-grid,
+      .gallery,
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-sidebar {
+        position: static;
+      }
+
+      .project-hero {
+        padding-top: 80px;
+      }
+    }
+  </style>
+</head>
+
+<body class="project-page">
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navigation page projet">
+      <a class="logo" href="../index.html#accueil">← Diane Lanau</a>
+
+      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="../index.html#projets">Retour aux projets</a></li>
+        <li><a href="../index.html#competences">Retour compétences</a></li>
+        <li><a href="#presentation">Présentation</a></li>
+        <li><a href="#tdb-ac1101">Concevoir</a></li>
+        <li><a href="#tdb-ac1201">Vérifier</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================
+         HERO PAGE PROJET
+         Présentation initiale harmonisée avec le SLR.
+    ========================== -->
+    <section class="project-hero">
+      <div class="container project-hero-grid reveal">
+        <div>
+          <p class="eyebrow">Étude de cas SAE GEII</p>
+
+          <h1>Thermomètre de bain avec LEDs</h1>
+
+          <p class="hero-subtitle">
+            Conception d’un système électronique d’indication de température
+          </p>
+
+          <p>
+            Un projet réalisé en équipe de quatre pour concevoir un thermomètre de bain capable
+            d’indiquer la température de l’eau grâce à trois LEDs : bleue pour l’eau froide,
+            verte pour l’eau tiède et rouge pour l’eau chaude.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="../index.html#projets">Retour au portfolio</a>
+            <a class="btn btn-secondary" href="#galerie">Voir la galerie</a>
+          </div>
+        </div>
+
+        <img
+          class="project-cover"
+          src="../assets/images/photos/project-thermometre-card.jpg"
+          alt="Image principale du projet thermomètre de bain avec LEDs"
+        />
+      </div>
+
+      <div class="container summary-grid reveal">
+        <div class="summary-card">Équipe de 4</div>
+        <div class="summary-card">SAE conception</div>
+        <div class="summary-card">Thermomètre</div>
+        <div class="summary-card">LEDs & seuils</div>
+        <div class="summary-card">Tests en température</div>
+      </div>
+    </section>
+
+    <!-- =========================
+         1. PRÉSENTATION
+    ========================== -->
+    <section id="presentation" class="case-section">
+      <div class="container case-grid reveal">
+        <aside class="case-sidebar card">
+          <span class="number">1</span>
+          <p class="eyebrow">Présentation</p>
+          <h2>Comprendre le projet</h2>
+          <p>
+            Cette partie présente le contexte général, les objectifs et les contraintes principales
+            du thermomètre de bain.
+          </p>
+        </aside>
+
+        <div class="case-content">
+          <article class="card">
+            <h3>Contexte</h3>
+            <p>
+              Ce projet avait pour objectif de concevoir entièrement un thermomètre de bain avec LEDs.
+              Contrairement aux exercices précédents, la conception préliminaire était moins guidée :
+              il fallait réfléchir aux solutions à apporter, identifier les éléments nécessaires
+              et construire une réponse technique cohérente.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Objectifs du projet</h3>
+            <ul class="action-list">
+              <li>Concevoir un système indiquant la température de l’eau.</li>
+              <li>Associer une couleur de LED à une plage de température.</li>
+              <li>Dimensionner les composants électriques nécessaires.</li>
+              <li>Réaliser le schéma et préparer le circuit imprimé.</li>
+              <li>Fabriquer et vérifier le prototype.</li>
+              <li>Rédiger des documents techniques plus complets.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Seuils de fonctionnement</h3>
+            <ul class="action-list">
+              <li>LED bleue : eau froide, température inférieure à 36 °C.</li>
+              <li>LED verte : eau tiède, température comprise entre 36 °C and 39 °C.</li>
+              <li>LED rouge : eau chaude, température supérieure à 39 °C.</li>
+            </ul>
+          </article>
+
+         
+
+
+
+<figure class="photo-slot">
+  <img src="../assets/images/photos/tdb-test-leds.jpg" alt="Validation des seuils de température" />
+  <figcaption>Simulation par étuve</figcaption>
+</figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC11.01
+    ========================== -->
+    <section class="section skill-section" id="tdb-ac1101">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC11.01</span>
+            <h2>Produire une analyse fonctionnelle d’un système simple</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              Cette compétence a été développée lors de la phase de conception préliminaire.
+              Il fallait comprendre le besoin du thermomètre de bain, identifier les fonctions principales
+              du système et déterminer les éléments nécessaires sans chercher immédiatement les références définitives.
+            </p>
+
+            <p>
+              Le besoin était clair : obtenir une indication simple et lisible de la température de l’eau.
+              La solution devait donc être compréhensible par l’utilisateur, avec trois états visuels :
+              eau froide, eau tiède et eau chaude.
+            </p>
+
+            <ul class="compact-list">
+              <li>Identification du besoin utilisateur : connaître rapidement si l’eau du bain est adaptée.</li>
+              <li>Définition des trois états du système : froid, tiède, chaud.</li>
+              <li>Choix d’une indication par LEDs colorées.</li>
+              <li>Recherche des fonctions nécessaires : capter, traiter, comparer et signaler.</li>
+            </ul>
+          </div>
+
+          <div class="evidence-box">
+            <h3>Ce que ce projet montre</h3>
+            <p>
+              Ce projet montre une progression par rapport au projet Rafale : ici, il ne s’agissait
+              pas seulement d’appliquer une démarche déjà guidée, mais de participer à la construction
+              des choix préliminaires du système.
+            </p>
+          </div>
+
+          <div class="image-row">
+  <figure class="photo-slot">
+    <img src="../assets/images/photos/tdb-schema-electrique.png" alt="Architecture du thermomètre" />
+    <figcaption>Architecture fonctionnelle du système</figcaption>
+  </figure>
+</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC11.02
+    ========================== -->
+    <section class="section skill-section" id="tdb-ac1102">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC11.02</span>
+            <h2>Réaliser un prototype pour des solutions techniques matérielles et/ou logicielles</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              Cette compétence correspond à la conception détaillée du circuit imprimé.
+              Nous avons travaillé sur le dimensionnement des composants, la construction du schéma électrique
+              et la réalisation de la carte permettant d’obtenir un prototype fonctionnel.
+            </p>
+
+            <p>
+              Le projet était plus poussé que le précédent, car il contenait davantage d’éléments à dimensionner
+              et à relier. Il fallait donc être plus rigoureux dans les choix techniques, dans le schéma
+              et dans le passage vers la fabrication.
+            </p>
+
+            <ul class="compact-list">
+              <li>Dimensionnement des composants électriques nécessaires au fonctionnement du système.</li>
+              <li>Création du schéma électrique de référence.</li>
+              <li>Préparation du routage de la carte.</li>
+              <li>Fabrication du circuit imprimé.</li>
+              <li>Soudure des composants et obtention d’un prototype testable.</li>
+            </ul>
+          </div>
+
+          <div class="evidence-box">
+            <h3>Ce que j’ai particulièrement apprécié</h3>
+            <p>
+              J’ai apprécié le dimensionnement plus poussé des composants, car le projet comportait davantage
+              d’éléments. J’ai aussi aimé la conception préliminaire, qui rendait le projet plus personnel
+              et nous plaçait davantage au cœur de la réalisation.
+            </p>
+          </div>
+
+         <div class="image-row">
+  <figure class="photo-slot">
+    <img src="../assets/images/photos/tdb-schema-electrique.png" alt="Schéma électrique" />
+    <figcaption>Schéma électrique</figcaption>
+  </figure>
+
+  <figure class="photo-slot">
+    <img src="../assets/images/photos/tdb-carte-complete.jpg" alt="Carte fabriquée" />
+    <figcaption>Carte fabriquée</figcaption>
+  </figure>
+</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC11.03
+    ========================== -->
+    <section class="section skill-section" id="tdb-ac1103">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC11.03</span>
+            <h2>Rédiger un dossier de fabrication à partir d’un dossier de conception</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              Le projet Thermomètre de bain a aussi mobilisé les compétences rédactionnelles.
+              La quantité de livrables était plus importante que dans les projets précédents :
+              il fallait produire des documents plus complets et plus structurés.
+            </p>
+
+            <p>
+              Cette étape m’a permis de consolider la communication technique, notamment dans la rédaction
+              des documents de conception, de fabrication et de vérification.
+            </p>
+
+            <ul class="compact-list">
+              <li>Rédaction et organisation des documents techniques.</li>
+              <li>Présentation des choix de conception.</li>
+              <li>Explication des étapes de fabrication.</li>
+              <li>Structuration des vérifications réalisées.</li>
+              <li>Communication plus professionnelle autour du projet.</li>
+            </ul>
+          </div>
+
+          <div class="evidence-box">
+            <h3>Différence avec le projet Rafale</h3>
+            <p>
+              Pour le projet Rafale, il s’agissait surtout d’un exercice de découverte.
+              Il n’est donc pas pertinent de présenter un DDC, DDF ou DDV complet.
+              Pour le thermomètre de bain, les documents prennent davantage de place
+              et montrent mieux cette compétence.
+            </p>
+          </div>
+
+         <div class="image-row">
+  <figure class="photo-slot">
+    <img src="../assets/images/photos/tdb-test-leds.jpg" alt="Validation des seuils thermiques" />
+    <figcaption>Simulation par étuve</figcaption>
+  </figure>
+</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC12.01
+    ========================== -->
+    <section class="section skill-section" id="tdb-ac1201">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC12.01</span>
+            <h2>Appliquer une procédure d’essais</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              La phase de vérification consistait à tester si les LEDs s’allumaient bien selon les seuils
+              de température attendus. L’objectif était de vérifier la conformité du système par rapport
+              au cahier des charges.
+            </p>
+
+            <ul class="compact-list">
+              <li>Vérification de l’allumage de la LED bleue sous 36 °C.</li>
+              <li>Vérification de l’allumage de la LED verte pour une eau tiède.</li>
+              <li>Vérification de l’allumage de la LED rouge au-dessus de 39 °C.</li>
+              <li>Comparaison des résultats avec les seuils attendus.</li>
+            </ul>
+          </div>
+
+          
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC12.02
+    ========================== -->
+    <section class="section skill-section" id="tdb-ac1202">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC12.02</span>
+            <h2>Identifier un dysfonctionnement</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              Deux difficultés principales ont été rencontrées. La première concernait la fabrication :
+              les pistes de la carte ont été rendues plus difficiles à souder à cause de fines couches
+              de sébum déposées par les mains. La deuxième concernait la vérification des seuils de température,
+              car l’étuve utilisée ne produisait pas un flux homogène.
+            </p>
+          </div>
+
+          <div class="problem-solution">
+            <article>
+              <h3>Problème de fabrication</h3>
+              <p>
+                Les pistes de la carte étaient plus difficiles à souder car la surface avait été légèrement
+                contaminée par le contact des mains. L’étain adhérait donc moins facilement.
+              </p>
+            </article>
+
+            <article>
+              <h3>Solution apportée</h3>
+              <p>
+                Nous avons essuyé délicatement et régulièrement la carte pendant la soudure afin de faciliter
+                l’adhérence de l’étain et poursuivre l’assemblage du prototype.
+              </p>
+            </article>
+
+            <article>
+              <h3>Problème de vérification</h3>
+              <p>
+                L’étuve ne produisait pas un flux thermique homogène, ce qui décalait les seuils de température
+                observés pendant les essais.
+              </p>
+            </article>
+
+            <article>
+              <h3>Solution apportée</h3>
+              <p>
+                Nous avons choisi d’observer les changements de seuils pendant le refroidissement de l’étuve,
+                ce qui donnait des résultats plus conformes aux seuils attendus.
+              </p>
+            </article>
+          </div>
+
+          <div class="image-row">
+  <figure class="photo-slot">
+    <img src="../assets/images/photos/tdb-etuve.jpg"
+         alt="Simulation par étuve" />
+    <figcaption>Simulation par étuve</figcaption>
+  </figure>
+</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC12.03
+    ========================== -->
+    <section class="section skill-section" id="tdb-ac1203">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC12.03</span>
+            <h2>Décrire les effets d’un dysfonctionnement</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              Le problème lié à l’étuve avait un effet direct sur la vérification : les seuils observés
+              semblaient décalés, non pas forcément à cause du circuit, mais à cause des conditions de test.
+              Cette distinction est importante, car elle évite de conclure trop rapidement à une erreur de conception.
+            </p>
+
+            <p>
+              En décrivant précisément le dysfonctionnement, sa cause probable et la méthode retenue pour le contourner,
+              nous avons pu justifier une procédure de vérification plus fiable.
+            </p>
+          </div>
+
+          <div class="evidence-box">
+            <h3>Analyse du dysfonctionnement</h3>
+            <p>
+              Le dysfonctionnement ne venait pas nécessairement du thermomètre lui-même, mais de l’environnement de test.
+              La solution a donc été d’adapter la méthode d’essai, en observant les seuils au refroidissement plutôt
+              qu’en se limitant à une montée en température peu homogène.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         COMPÉTENCES TRANSVERSALES
+    ========================== -->
+    <section class="case-section" id="competences-transversales">
+      <div class="container reveal">
+        <div class="section-heading center">
+          <p class="eyebrow">Compétences transversales</p>
+          <h2>Travail en équipe et communication technique</h2>
+          <p>
+            Ces compétences complètent les compétences techniques et montrent la démarche collective du projet.
+          </p>
+        </div>
+
+        <div class="transversal-grid">
+          <article class="card">
+            <h3>Travail en équipe</h3>
+            <p>
+              Le projet a été réalisé en équipe de quatre. Cette fois-ci, je me suis davantage placée comme suiveuse
+              du groupe, tout en participant activement à la réalisation. Nous avons communiqué régulièrement
+              sur l’avancement du projet et échangé les informations nécessaires entre binômes.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Communication professionnelle</h3>
+            <p>
+              Les documents à rendre étant plus nombreux, le projet a renforcé la communication technique.
+              Il fallait expliquer les choix, organiser les livrables et transmettre clairement les étapes
+              de conception, fabrication et vérification.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         RETOUR D'EXPÉRIENCE
+    ========================== -->
+    <section class="case-section" id="retour-experience">
+      <div class="container reveal">
+        <div class="section-heading center">
+          <p class="eyebrow">Retour d’expérience</p>
+          <h2>Ce que ce projet m’a apporté</h2>
+        </div>
+
+        <div class="retrospective-grid">
+          <article class="card">
+            <h3>Ce qui m’a plu</h3>
+            <ul class="action-list">
+              <li>Le dimensionnement plus poussé des composants électriques.</li>
+              <li>La conception préliminaire, plus autonome que dans les projets précédents.</li>
+              <li>Le fait de participer davantage aux choix techniques.</li>
+              <li>Le sentiment d’être plus au cœur du projet.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Ce que je ferais différemment</h3>
+            <ul class="action-list">
+              <li>Me tenir davantage au courant des détails du projet.</li>
+              <li>Anticiper plus tôt certaines étapes du planning.</li>
+              <li>Répartir plus régulièrement l’effort sur la durée.</li>
+              <li>Prévoir davantage de temps pour la vérification.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         GALERIE
+    ========================== -->
+    <section class="case-section" id="galerie">
+      <div class="container reveal">
+        <div class="section-heading center">
+          <p class="eyebrow">Galerie</p>
+          <h2>Images à ajouter</h2>
+          <p>Remplace les blocs ci-dessous par tes vraies photos du projet.</p>
+        </div>
+         <figure class="photo-slot">
+    <img src="../assets/images/photos/tdb-schema-electrique.jpg" alt="Schéma électrique" />
+    <figcaption>Schéma électrique</figcaption>
+  </figure>
+
+  <figure class="photo-slot">
+    <img src="../assets/images/photos/tdb-routage.jpg" alt="Routage du circuit" />
+    <figcaption>Routage</figcaption>
+  </figure>
+
+  <figure class="photo-slot">
+    <img src="../assets/images/photos/tdb-etuve.jpg" alt="Simulation par étuve" />
+    <figcaption>Simulation par étuve</figcaption>
+  </figure>
+
+  <figure class="photo-slot">
+    <img src="../assets/images/photos/tdb-ddv.jpg" alt="Document de vérification" />
+    <figcaption>DDV</figcaption>
+  </figure>
+</div>
+      </div>
+    </section>
+  </main>
+
+  <button class="back-to-top" aria-label="Retour en haut de la page">↑</button>
+</body>
+</html>
+
+```

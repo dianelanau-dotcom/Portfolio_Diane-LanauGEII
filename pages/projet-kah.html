@@ -1,0 +1,899 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projet Kart à Hélice - Portfolio Diane Lanau BUT GEII." />
+  <title>Kart à Hélice | Diane Lanau</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../script.js"></script>
+
+  <style>
+    :root {
+      --fond-page: #fffdfb;
+      --fond-doux: #fbf7f5;
+      --fond-carte: #ffffff;
+      --rose-poudre: #d7a7b3;
+      --rose-poudre-clair: #f7eef1;
+      --rose-poudre-fonce: #ad6f7f;
+      --bleu-geii: #24476f;
+      --bleu-geii-clair: #edf3f9;
+      --texte-principal: #1f2328;
+      --texte-secondaire: #4b5563;
+      --bordure: rgba(36, 71, 111, 0.13);
+      --ombre: 0 12px 28px rgba(31, 35, 40, 0.07);
+      --radius-grand: 20px;
+      --radius-moyen: 16px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body.project-page {
+      color: var(--texte-principal);
+      background: var(--fond-page);
+      line-height: 1.62;
+    }
+
+    .project-hero {
+      padding: 96px 0 44px;
+      background: linear-gradient(180deg, #fffdfb 0%, #fbf7f5 100%);
+    }
+
+    .project-hero-grid {
+      align-items: center;
+    }
+
+    .project-hero h1 {
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+      margin-bottom: 12px;
+    }
+
+    .project-hero p {
+      color: var(--texte-secondaire);
+    }
+
+    .project-cover {
+      border-radius: var(--radius-grand);
+      border: 1px solid var(--bordure);
+      box-shadow: var(--ombre);
+      max-height: 390px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .summary-grid {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .summary-card {
+      padding: 14px 16px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--bordure);
+      color: var(--bleu-geii);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(31, 35, 40, 0.05);
+    }
+
+    .case-section {
+      padding: 52px 0;
+    }
+
+    .anchor-section,
+    .skill-section {
+      scroll-margin-top: 90px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: 285px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .case-sidebar {
+      position: sticky;
+      top: 92px;
+      padding: 22px;
+      background: linear-gradient(135deg, #ffffff, var(--rose-poudre-clair));
+    }
+
+    .case-sidebar .number {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--bleu-geii);
+      color: white;
+      font-weight: 900;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    .case-sidebar h2 {
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .case-sidebar p {
+      color: var(--texte-secondaire);
+      font-size: 0.92rem;
+    }
+
+    .case-content {
+      display: grid;
+      gap: 18px;
+    }
+
+    .case-content > .card,
+    .section-card {
+      padding: 26px;
+    }
+
+    .case-content h3,
+    .section-card h3 {
+      font-size: 1.04rem;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .case-content p,
+    .section-card p,
+    .compact-list,
+    .action-list {
+      color: var(--texte-secondaire);
+    }
+
+    .section {
+      padding: 42px 0;
+    }
+
+    .project-container {
+      width: min(1080px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section-card {
+      border: 1px solid var(--bordure);
+      box-shadow: var(--ombre);
+      border-radius: var(--radius-grand);
+      background: white;
+    }
+
+    .skill-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .skill-code {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--bleu-geii);
+      color: white;
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-title h2 {
+      font-size: clamp(1.1rem, 2vw, 1.42rem);
+      letter-spacing: -0.025em;
+      margin: 0;
+    }
+
+    .content-flow {
+      display: grid;
+      gap: 16px;
+    }
+
+    .compact-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .compact-list li,
+    .action-list li {
+      margin-bottom: 7px;
+    }
+
+    .evidence-box {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: var(--radius-moyen);
+      border: 1px solid var(--bordure);
+      background: linear-gradient(135deg, var(--rose-poudre-clair), var(--bleu-geii-clair));
+    }
+
+    .evidence-box h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      color: var(--texte-principal);
+    }
+
+    .evidence-box p {
+      margin: 0;
+      color: var(--texte-secondaire);
+    }
+
+    .problem-solution {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .problem-solution article {
+      border: 1px solid var(--bordure);
+      border-radius: var(--radius-moyen);
+      padding: 18px;
+      background: #fff;
+    }
+
+    .image-row,
+    .image-suggestions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .photo-slot {
+      margin: 0;
+      border-radius: var(--radius-moyen);
+      overflow: hidden;
+      border: 1px solid var(--bordure);
+      background: #fff;
+    }
+
+    .photo-slot img {
+      display: block;
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .photo-slot figcaption {
+      padding: 10px 12px;
+      color: var(--texte-secondaire);
+      font-size: 0.86rem;
+    }
+
+    .image-placeholder {
+      min-height: 150px;
+      border-radius: var(--radius-moyen);
+      border: 1px dashed rgba(36, 71, 111, 0.24);
+      background: linear-gradient(135deg, rgba(247, 238, 241, 0.7), rgba(237, 243, 249, 0.75));
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 16px;
+      color: var(--texte-secondaire);
+      font-size: 0.9rem;
+    }
+
+    .two-soft-columns,
+    .transversal-grid,
+    .retrospective-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .gallery .image-placeholder {
+      min-height: 170px;
+    }
+
+    .section-heading.center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .page-footer {
+      padding: 42px 0 70px;
+      text-align: center;
+    }
+
+    .page-footer a {
+      color: var(--bleu-geii);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .page-footer a:hover {
+      color: var(--rose-poudre-fonce);
+    }
+
+    @media (max-width: 900px) {
+      .case-grid,
+      .image-row,
+      .image-suggestions,
+      .two-soft-columns,
+      .transversal-grid,
+      .retrospective-grid,
+      .gallery,
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-sidebar {
+        position: static;
+      }
+
+      .project-hero {
+        padding-top: 80px;
+      }
+    }
+  </style>
+</head>
+
+<body class="project-page">
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navigation page projet">
+      <a class="logo" href="../index.html#accueil">← Diane Lanau</a>
+
+      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="../index.html#projets">Retour aux projets</a></li>
+        <li><a href="../index.html#competences">Retour compétences</a></li>
+        <li><a href="#presentation">Présentation</a></li>
+        <li><a href="#kah-ac1101">Concevoir</a></li>
+        <li><a href="#kah-ac1201">Vérifier</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================
+         HERO PAGE PROJET
+    ========================== -->
+    <section class="project-hero">
+      <div class="container project-hero-grid reveal">
+        <div>
+          <p class="eyebrow">Étude de cas SAE GEII</p>
+
+          <h1>Kart à Hélice télécommandé</h1>
+
+          <p class="hero-subtitle">
+            Conception, fabrication et vérification d’un système émetteur-récepteur
+          </p>
+
+          <p>
+            Un projet complet réalisé en équipe de cinq, autour d’un kart miniature piloté par liaison infrarouge.
+            L’objectif était de concevoir un émetteur, un récepteur et l’ensemble des documents techniques
+            permettant de justifier le fonctionnement du produit final.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="../index.html#projets">Retour au portfolio</a>
+            <a class="btn btn-secondary" href="#galerie">Voir la galerie</a>
+          </div>
+        </div>
+
+        <img
+          class="project-cover"
+          src="../assets/images/photos/project-kart-card.jpg"
+          alt="Image principale du projet Kart à Hélice"
+        />
+      </div>
+
+      <div class="container summary-grid reveal">
+        <div class="summary-card">Équipe de 5</div>
+        <div class="summary-card">Projet prévu pour 8</div>
+        <div class="summary-card">Émetteur / récepteur</div>
+        <div class="summary-card">Liaison infrarouge NEC</div>
+        <div class="summary-card">DDC · DDF · DDV</div>
+      </div>
+    </section>
+
+    <!-- =========================
+         1. PRÉSENTATION
+    ========================== -->
+    <section id="presentation" class="case-section">
+      <div class="container case-grid reveal">
+        <aside class="case-sidebar card">
+          <span class="number">1</span>
+          <p class="eyebrow">Présentation</p>
+          <h2>Comprendre le projet</h2>
+          <p>
+            Cette partie présente le contexte général, le produit à développer
+            et la logique émetteur-récepteur du kart.
+          </p>
+        </aside>
+
+        <div class="case-content">
+          <article class="card">
+            <h3>Contexte</h3>
+
+            <p>
+              Le projet Kart à Hélice consiste à développer un kart miniature télécommandé, destiné à une utilisation
+              en intérieur. Le produit repose sur une liaison infrarouge standard afin de transmettre les commandes
+              entre un émetteur tenu par l’utilisateur et un récepteur embarqué sur le kart.
+            </p>
+
+            <p>
+              Le système devait rester adapté à un produit de modélisme accessible : puissance modérée, transmission
+              simple, coût maîtrisé et architecture suffisamment claire pour pouvoir être conçue, fabriquée et vérifiée
+              dans un cadre de projet GEII.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Objectifs du projet</h3>
+
+            <ul class="action-list">
+              <li>Concevoir un émetteur capable de transmettre les commandes du kart.</li>
+              <li>Concevoir un récepteur capable de décoder les trames et de piloter les actionneurs.</li>
+              <li>Gérer la puissance du moteur brushless et la direction des roues avant.</li>
+              <li>Intégrer un bouton de klaxon, des indicateurs lumineux et une sécurité en cas de perte de signal.</li>
+              <li>Produire les documents de conception, de fabrication et de vérification.</li>
+              <li>Tester le produit final par rapport aux exigences du cahier des charges.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Architecture générale</h3>
+
+            <p>
+              Le produit est composé de deux cartes principales. La carte émetteur contient les interfaces utilisateur :
+              potentiomètre de vitesse, potentiomètre de direction, bouton de klaxon, indicateur de mise sous tension
+              et diodes infrarouges d’émission. La carte récepteur reçoit les trames, les décode, puis commande
+              le moteur, le servomoteur, les LEDs et le buzzer.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Images à ajouter dans cette section</h3>
+
+            
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC11.01
+    ========================== -->
+    <section class="section skill-section" id="kah-ac1101">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC11.01</span>
+            <h2>Produire une analyse fonctionnelle d’un système simple</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              Cette compétence a été travaillée lors de la conception préliminaire. Il fallait comprendre
+              le besoin du client, identifier les fonctions du kart et organiser le système en plusieurs blocs :
+              acquisition, traitement, action et énergie.
+            </p>
+
+            <p>
+              Même si le dossier de conception n’était pas toujours parfaitement rigoureux dans sa rédaction,
+              il contient les éléments essentiels pour comprendre l’architecture du produit : l’émetteur récupère
+              les commandes de l’utilisateur, les transforme en données numériques et les transmet ; le récepteur
+              reçoit ces données, les vérifie et agit sur les différents composants du kart.
+            </p>
+
+            <ul class="compact-list">
+              <li>Identification du besoin : piloter un kart miniature en intérieur.</li>
+              <li>Séparation du produit en deux sous-systèmes : émetteur et récepteur.</li>
+              <li>Repérage des fonctions principales : acquérir, traiter, transmettre, recevoir et agir.</li>
+              <li>Association des exigences du cahier des charges aux fonctions du produit.</li>
+              <li>Première structuration du projet selon les blocs fonctionnels GEII.</li>
+            </ul>
+          </div>
+
+          <div class="evidence-box">
+            <h3>Ce que ce projet montre</h3>
+
+            <p>
+              Le KAH montre une progression importante par rapport aux projets précédents : le système est plus vaste,
+              les blocs sont plus nombreux et la conception demande de relier mécanique, électronique, informatique
+              et vérification dans un même projet.
+            </p>
+          </div>
+
+         
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC11.02
+    ========================== -->
+    <section class="section skill-section" id="kah-ac1102">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC11.02</span>
+            <h2>Réaliser un prototype pour des solutions techniques matérielles et/ou logicielles</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              Cette compétence correspond à la conception détaillée du produit. Le projet demandait de choisir,
+              dimensionner et intégrer plusieurs solutions techniques : microcontrôleurs, capteur infrarouge,
+              LEDs infrarouges, potentiomètres, bouton poussoir, buzzer, servomoteur et commande du moteur brushless.
+            </p>
+
+            <p>
+              Le cœur du système repose sur un microcontrôleur ATmega328P. Côté émetteur, il permet d’acquérir
+              les valeurs des potentiomètres, de lire l’état du bouton de klaxon et de construire les trames NEC.
+              Côté récepteur, il permet de décoder les trames reçues, d’extraire les données de puissance et de direction,
+              puis de piloter les sorties du kart.
+            </p>
+
+            <ul class="compact-list">
+              <li>Choix d’une architecture électronique pour l’émetteur et le récepteur.</li>
+              <li>Utilisation de potentiomètres pour la vitesse et la direction.</li>
+              <li>Choix d’un récepteur infrarouge TSOP4438 pour la réception des trames.</li>
+              <li>Utilisation de LEDs infrarouges TSAL6200 pour l’émission.</li>
+              <li>Intégration d’un microcontrôleur ATmega328P pour le traitement numérique.</li>
+              <li>Réalisation des cartes permettant d’obtenir un prototype testable.</li>
+            </ul>
+          </div>
+
+          <div class="evidence-box">
+            <h3>Ce que j’ai développé</h3>
+
+            <p>
+              Ce projet m’a permis de mieux comprendre le passage entre une exigence client et une solution technique.
+              Il ne s’agissait plus seulement de faire fonctionner une carte isolée, mais de concevoir un produit complet
+              avec plusieurs fonctions dépendantes les unes des autres.
+            </p>
+          </div>
+
+          
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC11.03
+    ========================== -->
+    <section class="section skill-section" id="kah-ac1103">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC11.03</span>
+            <h2>Rédiger un dossier de fabrication à partir d’un dossier de conception</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              Le KAH a aussi fortement mobilisé la rédaction de documents techniques. Les dossiers de fabrication
+              de l’émetteur et du récepteur regroupent les documents nécessaires pour reproduire les cartes :
+              schémas électriques, nomenclatures, typons, plans de perçage, schémas d’implantation et processus
+              de fabrication.
+            </p>
+
+            <p>
+              Cette partie du projet montre mieux la logique industrielle du portfolio : l’objectif n’est pas seulement
+              de produire une carte qui fonctionne, mais aussi de laisser une trace claire permettant de comprendre,
+              reproduire et vérifier le produit.
+            </p>
+
+            <ul class="compact-list">
+              <li>Réalisation de deux dossiers de fabrication : émetteur et récepteur.</li>
+              <li>Présentation des schémas électriques.</li>
+              <li>Création des nomenclatures de composants.</li>
+              <li>Génération des typons et plans de perçage.</li>
+              <li>Rédaction du processus de fabrication.</li>
+              <li>Structuration des documents pour assurer la reproductibilité du produit.</li>
+            </ul>
+          </div>
+
+          <div class="evidence-box">
+            <h3>Ce que ce projet montre</h3>
+
+            <p>
+              Contrairement au projet Rafale, le KAH permet de montrer une vraie progression dans la documentation :
+              le projet contient un DDC, deux DDF et un DDV complet, ce qui en fait un bon exemple de démarche projet
+              structurée.
+            </p>
+          </div>
+
+          
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC12.01
+    ========================== -->
+    <section class="section skill-section" id="kah-ac1201">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC12.01</span>
+            <h2>Appliquer une procédure d’essais</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              La phase de vérification a été particulièrement importante dans ce projet. Le DDV décrit les essais
+              permettant de vérifier la conformité du produit : dimensions mécaniques, logo, réception infrarouge,
+              traitement des trames, pilotage du moteur et du servomoteur, buzzer, sécurité, énergie et indicateurs.
+            </p>
+
+            <p>
+              Les essais ont demandé d’utiliser différents moyens de mesure et d’observation : multimètre,
+              oscilloscope, alimentation de table, pied à coulisse, observation visuelle et essais fonctionnels
+              sur le kart.
+            </p>
+
+            <ul class="compact-list">
+              <li>Vérification des dimensions des cartes.</li>
+              <li>Vérification de la réception des trames infrarouges.</li>
+              <li>Mesure des signaux à l’oscilloscope.</li>
+              <li>Vérification du traitement des cas de commande.</li>
+              <li>Contrôle du fonctionnement du buzzer, des LEDs, du moteur et du servomoteur.</li>
+              <li>Test de la sécurité en cas de perte de trame ou de mauvaise adresse.</li>
+            </ul>
+          </div>
+
+          <div class="evidence-box">
+            <h3>Exemple d’essai</h3>
+
+            <p>
+              Pour vérifier le traitement récepteur, plusieurs cas de commande ont été testés afin d’observer
+              les valeurs de sortie attendues : puissance minimale ou maximale du brushless, position du servomoteur,
+              état du buzzer et état de la LED bleue.
+            </p>
+          </div>
+
+          
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC12.02
+    ========================== -->
+    <section class="section skill-section" id="kah-ac1202">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC12.02</span>
+            <h2>Identifier un dysfonctionnement</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              La vérification a permis de repérer une non-conformité partielle liée aux dimensions des cartes,
+              notamment au positionnement de certains trous de fixation. Cette non-conformité ne venait pas
+              directement du fonctionnement électronique du produit, mais plutôt du découpage ou du support
+              de circuit imprimé utilisé.
+            </p>
+
+            <p>
+              Le projet a aussi demandé de savoir distinguer les problèmes critiques des écarts acceptables.
+              Ici, la non-conformitée dimensionnelle n’empêchait pas le kart de fonctionner, mais elle devait
+              tout de même être signalée dans une logique de production plus rigoureuse.
+            </p>
+          </div>
+
+          <div class="problem-solution">
+            <article>
+              <h3>Problème identifié</h3>
+
+              <p>
+                Certaines dimensions liées aux trous de fixation ne respectaient pas parfaitement les tolérances
+                du cahier des charges.
+              </p>
+            </article>
+
+            <article>
+              <h3>Cause probable</h3>
+
+              <p>
+                L’écart provenait du découpage ou du support de circuit imprimé, un élément qui n’était pas directement
+                maîtrisé par l’équipe projet.
+              </p>
+            </article>
+
+            <article>
+              <h3>Effet sur le produit</h3>
+
+              <p>
+                L’écart n’impactait pas les capacités fonctionnelles du kart, mais il devait être pris en compte
+                pour une éventuelle production en série.
+              </p>
+            </article>
+
+            <article>
+              <h3>Solution retenue</h3>
+
+              <p>
+                Pour une future production, il serait pertinent d’ajouter une double vérification des dimensions
+                des cartes avant leur utilisation.
+              </p>
+            </article>
+          </div>
+
+          
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC12.03
+    ========================== -->
+    <section class="section skill-section" id="kah-ac1203">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC12.03</span>
+            <h2>Décrire les effets d’un dysfonctionnement</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              Le DDV montre que la majorité des essais ont validé la conformité du produit final. Le principal écart
+              relevé concerne les dimensions des cartes, mais cet écart ne remet pas en cause le fonctionnement global
+              du kart.
+            </p>
+
+            <p>
+              Décrire les effets d’un dysfonctionnement ne consiste donc pas seulement à dire qu’un essai est conforme
+              ou non conforme. Il faut aussi expliquer la cause probable, l’impact réel sur le produit, puis proposer
+              une action pour éviter que le problème se reproduise dans une production future.
+            </p>
+          </div>
+
+          <div class="evidence-box">
+            <h3>Analyse du dysfonctionnement</h3>
+
+            <p>
+              La non-conformité dimensionnelle est importante à signaler dans le dossier, mais elle n’empêche pas
+              le lancement du produit. Elle devient surtout un point de vigilance pour améliorer le contrôle qualité
+              lors d’une production en série.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         COMPÉTENCES TRANSVERSALES
+    ========================== -->
+    <section class="case-section" id="competences-transversales">
+      <div class="container reveal">
+        <div class="section-heading center">
+          <p class="eyebrow">Compétences transversales</p>
+
+          <h2>Travail en équipe, organisation et communication</h2>
+
+          <p>
+            Le KAH a été un projet plus long, plus dense et plus collectif que les projets précédents.
+          </p>
+        </div>
+
+        <div class="transversal-grid">
+          <article class="card">
+            <h3>Une équipe réduite</h3>
+
+            <p>
+              Le projet était prévu pour une équipe plus grande, mais nous étions seulement cinq pour un projet prévu
+              pour huit personnes. Cela nous a obligés à mieux répartir les tâches, à communiquer régulièrement
+              et à suivre l’avancement de chacun pour ne pas perdre de temps.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Communication et adaptation</h3>
+
+            <p>
+              Au début du projet, nous avons rencontré quelques désaccords sur l’organisation et la répartition du travail,
+              principalement par manque d’expérience. Avec l’avancement du projet, nous avons réussi à mieux nous coordonner
+              et à trouver un fonctionnement plus efficace.
+            </p>
+          </article>
+        </div>
+
+        <div class="evidence-box">
+          <h3>Ce que cette expérience m’a appris</h3>
+
+          <p>
+            Ce projet m’a montré qu’une bonne organisation ne vient pas toujours immédiatement. Elle se construit avec
+            les contraintes, les échanges et les ajustements. Le fait d’être moins nombreux nous a demandé plus d’autonomie,
+            plus de polyvalence et une communication plus claire.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         RETOUR D'EXPÉRIENCE
+    ========================== -->
+    <section class="case-section" id="retour-experience">
+      <div class="container reveal">
+        <div class="section-heading center">
+          <p class="eyebrow">Retour d’expérience</p>
+
+          <h2>Ce que ce projet m’a apporté</h2>
+        </div>
+
+        <div class="retrospective-grid">
+          <article class="card">
+            <h3>Ce qui m’a plu</h3>
+
+            <ul class="action-list">
+              <li>Travailler sur un projet plus complet, avec un émetteur et un récepteur.</li>
+              <li>Faire le lien entre conception, fabrication et vérification.</li>
+              <li>Comprendre l’intérêt des documents DDC, DDF et DDV dans une démarche qualité.</li>
+              <li>Utiliser des essais réels pour vérifier le comportement du produit.</li>
+              <li>Participer à un projet qui se rapproche davantage d’un vrai développement produit.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Ce que je ferais différemment</h3>
+
+            <ul class="action-list">
+              <li>Clarifier plus tôt la répartition des tâches dans l’équipe.</li>
+              <li>Mettre en place un suivi plus régulier des livrables.</li>
+              <li>Améliorer la rigueur du DDC dès la première version.</li>
+              <li>Anticiper davantage la phase de vérification.</li>
+              <li>Prévoir une vérification plus stricte des dimensions avant fabrication.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         GALERIE
+    ========================== -->
+    <section class="case-section" id="galerie">
+      <div class="container reveal">
+        <div class="section-heading center">
+          <p class="eyebrow">Galerie</p>
+
+        
+
+         
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <div class="container">
+      <p>&copy; 2026 Diane Lanau. Tous droits réservés.</p>
+      <p><a href="../index.html#projets">Retour aux projets</a></p>
+    </div>
+  </footer>
+</body>
+</html>
+
+```

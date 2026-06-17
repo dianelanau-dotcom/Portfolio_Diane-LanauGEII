@@ -1,0 +1,1068 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio étudiant de Diane Lanau, étudiante en BUT GEII." />
+  <title>Diane Lanau | Portfolio GEII</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root {
+      --fond-page: #fffdfb;
+      --fond-doux: #fbf7f5;
+      --fond-carte: #ffffff;
+
+      --rose-poudre: #d7a7b3;
+      --rose-poudre-clair: #f7eef1;
+      --rose-poudre-fonce: #ad6f7f;
+
+      --bleu-geii: #24476f;
+      --bleu-geii-clair: #edf3f9;
+
+      --texte-principal: #1f2328;
+      --texte-secondaire: #4b5563;
+      --texte-discret: #6b7280;
+
+      --bordure: rgba(36, 71, 111, 0.13);
+      --ombre: 0 12px 28px rgba(31, 35, 40, 0.07);
+      --ombre-legere: 0 8px 20px rgba(31, 35, 40, 0.055);
+
+      --radius-grand: 20px;
+      --radius-moyen: 16px;
+      --radius-petit: 12px;
+    }
+
+    body {
+      color: var(--texte-principal);
+      background: var(--fond-page);
+      line-height: 1.62;
+    }
+
+    .section-padding {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+
+    .soft-bg {
+      background: var(--fond-doux);
+    }
+
+    .card {
+      border: 1px solid var(--bordure);
+      box-shadow: var(--ombre);
+      border-radius: var(--radius-grand);
+      background: var(--fond-carte);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.45rem, 2.6vw, 2rem);
+      line-height: 1.16;
+      letter-spacing: -0.03em;
+      color: var(--texte-principal);
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      color: var(--texte-secondaire);
+      font-size: 0.96rem;
+    }
+
+    .compact-heading {
+      margin-bottom: 16px;
+    }
+
+    .compact-heading h2 {
+      font-size: clamp(1.12rem, 2vw, 1.45rem);
+    }
+
+    .eyebrow {
+      color: var(--bleu-geii);
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 5.5vw, 3.75rem);
+      letter-spacing: -0.06em;
+      line-height: 0.95;
+      color: var(--texte-principal);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.98rem, 2vw, 1.18rem);
+      color: var(--bleu-geii);
+      font-weight: 650;
+    }
+
+    .hero-intro,
+    .card p {
+      color: var(--texte-secondaire);
+    }
+
+    .intro-card h2 {
+      font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      color: var(--texte-principal);
+    }
+
+    .about-main {
+      margin-bottom: 42px;
+    }
+
+    .about-detail-block {
+      margin-top: 36px;
+    }
+
+    /* =====================================================
+       À PROPOS : images non techniques plus sobres
+    ====================================================== */
+    .feature-card,
+    .interest-card,
+    .volunteer-card {
+      padding: 18px;
+    }
+
+    .feature-card img {
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      box-shadow: var(--ombre-legere);
+    }
+
+    .feature-card h3,
+    .interest-card h3,
+    .volunteer-card h3 {
+      font-size: 0.98rem;
+      line-height: 1.25;
+      margin-bottom: 5px;
+      color: var(--texte-principal);
+    }
+
+    .feature-card p,
+    .interest-card p,
+    .volunteer-card p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+
+    .interest-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .interest-card img {
+      width: 68px;
+      height: 68px;
+      object-fit: cover;
+      border-radius: 15px;
+      flex: 0 0 68px;
+      box-shadow: var(--ombre-legere);
+    }
+
+    .tag {
+      color: var(--rose-poudre-fonce);
+      font-weight: 700;
+      font-size: 0.82rem;
+      margin-bottom: 5px;
+    }
+
+    /* =====================================================
+       BÉNÉVOLAT COMPACT
+    ====================================================== */
+    .volunteer-compact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .volunteer-card.compact {
+      display: grid;
+      grid-template-columns: 66px 1fr;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      box-shadow: var(--ombre-legere);
+    }
+
+    .volunteer-card.compact img {
+      width: 66px;
+      height: 66px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin: 0;
+    }
+
+    .volunteer-card.compact h3 {
+      margin-bottom: 2px;
+      font-size: 0.98rem;
+    }
+
+    .volunteer-card.compact p {
+      margin: 0;
+      font-size: 0.88rem;
+    }
+
+    .volunteer-card.compact .tag {
+      margin-bottom: 4px;
+    }
+
+    /* =====================================================
+       PARCOURS
+    ====================================================== */
+    .timeline {
+      position: relative;
+    }
+
+    .timeline-item {
+      overflow: visible;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.05rem;
+      color: var(--texte-principal);
+    }
+
+    /* =====================================================
+       PROJETS : cartes plus simples, sans tableaux
+    ====================================================== */
+    .project-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border-radius: var(--radius-grand);
+    }
+
+    .project-card img {
+      height: 138px;
+      width: 100%;
+      object-fit: cover;
+      border-bottom: 1px solid var(--bordure);
+    }
+
+    .project-content {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project-content h3 {
+      font-size: 1rem;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      margin-bottom: 9px;
+      color: var(--texte-principal);
+    }
+
+    .project-content p {
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .project-description {
+      flex: 1;
+    }
+
+    .text-link {
+      color: var(--bleu-geii);
+      font-weight: 750;
+      text-decoration: none;
+      font-size: 0.92rem;
+      margin-top: auto;
+    }
+
+    .text-link:hover {
+      color: var(--rose-poudre-fonce);
+    }
+
+    /* =====================================================
+       COMPÉTENCES : plus linéaires, moins en colonnes
+    ====================================================== */
+    .competency-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .competency-card {
+      padding: 0;
+      overflow: hidden;
+      background: var(--fond-carte);
+      border-radius: 22px;
+      box-shadow: var(--ombre);
+    }
+
+    .competency-header {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 20px;
+      border-bottom: 1px solid var(--bordure);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(247, 238, 241, 0.72));
+    }
+
+    .competency-code {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      background: var(--bleu-geii);
+      color: white;
+      font-weight: 850;
+      font-size: 0.96rem;
+      box-shadow: 0 10px 20px rgba(36, 71, 111, 0.18);
+    }
+
+    .competency-header h3 {
+      font-size: clamp(1.02rem, 1.9vw, 1.25rem);
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      margin: 2px 0 8px;
+      color: var(--texte-principal);
+    }
+
+    .competency-header p:last-child {
+      margin-bottom: 0;
+      font-size: 0.91rem;
+    }
+
+    .ac-list {
+      display: grid;
+      gap: 13px;
+      padding: 18px 20px 20px;
+    }
+
+    .ac-item {
+      border: 1px solid var(--bordure);
+      border-radius: var(--radius-moyen);
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .ac-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 15px 92px 15px 16px;
+      position: relative;
+      color: var(--texte-principal);
+      font-weight: 800;
+      font-size: 0.92rem;
+      line-height: 1.35;
+      background: #ffffff;
+    }
+
+    .ac-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .ac-item summary::after {
+      content: "ouvrir";
+      position: absolute;
+      right: 16px;
+      top: 15px;
+      color: var(--rose-poudre-fonce);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 850;
+    }
+
+    .ac-item[open] summary::after {
+      content: "fermer";
+    }
+
+    .ac-content {
+      padding: 0 16px 16px;
+      color: var(--texte-secondaire);
+    }
+
+    .criteria-list {
+      margin: 10px 0 16px;
+      padding-left: 18px;
+    }
+
+    .criteria-list li {
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+
+    .project-links {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, var(--rose-poudre-clair), var(--bleu-geii-clair));
+      border: 1px solid var(--bordure);
+    }
+
+    .project-links span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--rose-poudre-fonce);
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .project-link-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .project-links a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(36, 71, 111, 0.1);
+      color: var(--bleu-geii);
+      font-weight: 750;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .project-links a::after {
+      content: "→";
+      color: var(--rose-poudre-fonce);
+      font-weight: 900;
+    }
+
+    .project-links a:hover {
+      color: var(--rose-poudre-fonce);
+    }
+
+    @media (max-width: 900px) {
+      .volunteer-compact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-padding {
+        padding-top: 54px;
+        padding-bottom: 54px;
+      }
+
+      .project-card img {
+        height: 128px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .competency-header {
+        grid-template-columns: 1fr;
+      }
+
+      .competency-code {
+        width: fit-content;
+        height: auto;
+        padding: 8px 12px;
+        border-radius: 999px;
+      }
+
+      .volunteer-card.compact {
+        grid-template-columns: 58px 1fr;
+      }
+
+      .volunteer-card.compact img {
+        width: 58px;
+        height: 58px;
+      }
+    }
+  </style>
+
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navigation principale">
+      <a class="logo" href="#accueil" aria-label="Retour à l'accueil">Diane Lanau</a>
+
+      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="accueil" class="hero section-padding">
+      <div class="container hero-grid reveal">
+        <div class="hero-text">
+          <p class="eyebrow">Portfolio étudiant GEII</p>
+
+          <h1>Diane Lanau</h1>
+
+          <p class="hero-subtitle">
+            Étudiante en BUT Génie Électrique et Informatique Industrielle
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projets">Voir mes projets</a>
+
+            <a class="btn btn-secondary" href="assets/cv/cv-diane-lanau.pdf" download>
+              Télécharger mon CV
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Photos et projets électroniques">
+          
+
+          <img
+            class="floating-card floating-card-1"
+            src="assets/images/photos/hero-project-1.jpg"
+            alt="Emplacement image projet électronique 1"
+          />
+
+          <img
+            class="floating-card floating-card-2"
+            src="assets/images/photos/hero-project-2.jpg"
+            alt="Emplacement image projet électronique 2"
+          />
+
+          <img
+            class="floating-card floating-card-3"
+            src="assets/images/photos/hero-project-3.jpg"
+            alt="Emplacement image projet électronique 3"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="apropos" class="section-padding soft-bg">
+      <div class="container reveal">
+        <div class="two-columns about-main">
+          <div class="image-frame">
+            <img
+              src="assets/images/photos/about.jpg"
+              alt="Photo ou illustration pour la section à propos"
+            />
+          </div>
+
+          <article class="card intro-card">
+            <p class="eyebrow">À propos de moi</p>
+
+            <p>
+              Actuellement étudiante en première année de BUT Génie Électrique et Informatique Industrielle (GEII), j'ai toujours été attirée par le développement des technologies. 
+              Cette curiosité m'a poussée à m'impliquer dans divers centres d'intérêts, notamment artistiques, ainsi que dans une vie associative et bénévole assez remplie.
+              Ces expériences m'ont permis de développer l’organisation nécessaire afin d’allier travail et loisirs tout en créant un sens des responsabilités et une forte capacité à travailler en équipe.
+            </p>
+          </article>
+        </div>
+
+        <div class="about-detail-block">
+          <div class="section-heading compact-heading">
+            <h2>Associations</h2>
+          </div>
+
+          <div class="card-grid three-cols">
+            <article class="card feature-card">
+              <img
+                src="assets/images/photos/association-scouts.jpg"
+                alt="Emplacement logo Scouts et Guides de France"
+              />
+
+              <h3>Cheftaine Scouts et Guides de France</h3>
+
+              <p>
+                Encadrement, organisation d’activités, responsabilité et esprit d’équipe.
+              </p>
+            </article>
+
+            <article class="card feature-card">
+              <img
+                src="assets/images/photos/association-chambre-noire.jpg"
+                alt="Emplacement logo La Chambre Noire"
+              />
+
+              <h3>Co-secrétaire La Chambre Noire</h3>
+
+              <p>
+                Quatre ans d’expérience en production de courts métrages loisirs et gestion administrative.
+              </p>
+            </article>
+
+            <article class="card feature-card">
+              <img
+                src="assets/images/photos/association-bde.jpg"
+                alt="Emplacement logo BDE IUT"
+              />
+
+              <h3>Secrétaire BDE IUT</h3>
+
+              <p>
+                Participation à la vie étudiante, organisation d’événements
+                et travail collectif.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="about-detail-block">
+          <div class="section-heading compact-heading">
+            <h2>Centres d’intérêt</h2>
+          </div>
+
+          <div class="card-grid two-cols">
+            <article class="card interest-card">
+              <img
+                src="assets/images/photos/danse.jpg"
+                alt="Emplacement image danse contemporaine"
+              />
+
+              <div>
+                <h3>Danse contemporaine</h3>
+                <p class="tag">13 ans de pratique</p>
+              </div>
+            </article>
+
+            <article class="card interest-card">
+              <img
+                src="assets/images/photos/guitare.jpg"
+                alt="Emplacement image guitare"
+              />
+
+              <div>
+                <h3>Guitare</h3>
+                <p class="tag">6 ans de pratique</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="about-detail-block">
+          <div class="section-heading compact-heading">
+            <h2>Bénévolat</h2>
+          </div>
+
+          <div class="volunteer-compact-grid">
+            <article class="card volunteer-card compact">
+              <img
+                src="assets/images/photos/hypermondes.jpg"
+                alt="Emplacement image Festival Hypermondes"
+              />
+
+              <div>
+                <h3>Festival Hypermondes</h3>
+                <p class="tag">2022 - 2025</p>
+                <p>
+                  Organisation et accueil des visiteurs d'un festival de science fiction.
+                </p>
+              </div>
+            </article>
+
+            <article class="card volunteer-card compact">
+              <img
+                src="assets/images/photos/robocup.jpg"
+                alt="Emplacement image Jury Robocup France"
+              />
+
+              <div>
+                <h3>Jury Robocup France</h3>
+                <p class="tag">2026</p>
+                <p>
+                  Organisation et encadrement d'une compétition de robotique pour collèges et lycées.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="parcours" class="section-padding soft-bg">
+      <div class="container reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Chronologie</p>
+
+          <h2>Parcours</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item card">
+            <span class="timeline-date">2025-2026</span>
+            <h3>BUT GEII</h3>
+            <p>
+              Première année en Génie Électrique et Informatique Industrielle :
+              électronique, automatisme, informatique industrielle et électrotechnique.
+            </p>
+          </article>
+
+          <article class="timeline-item card">
+            <span class="timeline-date">2025-2026</span>
+            <h3>DU ROBOTIQUE</h3>
+            <p>
+              Diplôme Universitaire parallèle en robotique autonome.
+            </p>
+          </article>
+
+          <article class="timeline-item card">
+            <span class="timeline-date">2025</span>
+            <h3>Baccalauréat Général</h3>
+            <p>
+              Baccalauréat Général Anglais SVT - Mention Bien - Spécialités Mathématiques, Physique-Chimie, Sciences et Vie de la Terre.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projets" class="section-padding">
+      <div class="container reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Réalisations</p>
+
+          <h2>Projets</h2>
+        </div>
+
+        <div class="card-grid three-cols">
+          <article class="card project-card">
+            <img
+              src="assets/images/photos/project-rafale-card.jpg"
+              alt="Emplacement image carte lumière Rafale miniature"
+            />
+
+            <div class="project-content">
+              <h3>Carte lumière pour Rafale miniature</h3>
+
+              <p class="project-description">
+                Premier projet de découverte autour du circuit imprimé. Il m’a permis de comprendre
+                les bases du routage, de la fabrication d’une carte et des premières vérifications
+                à l’aide d’appareils de mesure.
+              </p>
+
+              <a class="text-link" href="pages/projet-rafale.html">
+                Voir le projet
+              </a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <img
+              src="assets/images/photos/project-thermometre-card.jpg"
+              alt="Emplacement image thermomètre de bain avec LEDs"
+            />
+
+            <div class="project-content">
+              <h3>Thermomètre de bain avec LEDs</h3>
+
+              <p class="project-description">
+                Projet de conception plus complet autour d’un thermomètre indiquant la température
+                de l’eau grâce à trois LEDs. Il montre une progression dans le dimensionnement,
+                la conception préliminaire et la vérification.
+              </p>
+
+              <a class="text-link" href="pages/projet-thermometre.html">
+                Voir le projet
+              </a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <img
+              src="assets/images/photos/project-kart-card.jpg"
+              alt="Emplacement image kart à hélice"
+            />
+
+            <div class="project-content">
+              <h3>Kart à Hélice télécommandé</h3>
+
+              <p class="project-description">
+                Projet complet mêlant toutes les phases de création d'un projet.
+                Le système repose sur un émetteur, un récepteur et une liaison infrarouge permettant
+                de piloter un kart.
+              </p>
+
+              <a class="text-link" href="pages/projet-kah.html">
+                Voir le projet
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="competences" class="section-padding soft-bg">
+      <div class="container reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Référentiel GEII — BUT1</p>
+
+          <h2>Compétences</h2>
+
+          <p>
+            En première année, je présente mes acquis à travers deux compétences :
+            <strong>concevoir</strong> et <strong>vérifier</strong>. Les sous-compétences ci-dessous
+            renvoient directement vers les projets où elles sont expliquées.
+          </p>
+        </div>
+
+        <div class="competency-grid">
+          <article class="card competency-card">
+            <div class="competency-header">
+              <span class="competency-code">C1</span>
+
+              <div>
+                <p class="eyebrow">Compétence 1</p>
+
+                <h3>Concevoir la partie GEII d’un système industriel</h3>
+
+                <p>
+                  Mener une conception partielle intégrant une démarche projet.
+                </p>
+              </div>
+            </div>
+
+            <div class="ac-list">
+              <details class="ac-item">
+                <summary>
+                  AC11.01 — Produire une analyse fonctionnelle d’un système simple
+                </summary>
+
+                <div class="ac-content">
+                  <ul class="criteria-list">
+                    <li>
+                      Comprendre le besoin et les fonctions attendues du système.
+                    </li>
+
+                    <li>
+                      Identifier les éléments nécessaires sans chercher immédiatement
+                      les références définitives.
+                    </li>
+
+                    <li>
+                      Choisir une architecture générale cohérente avec le cahier des charges.
+                    </li>
+                  </ul>
+
+                  <div class="project-links">
+                    <span>Projets associés</span>
+
+                    <div class="project-link-list">
+                      <a href="pages/projet-thermometre.html#tdb-ac1101">
+                        Thermomètre de bain — conception préliminaire
+                      </a>
+
+                      <a href="pages/projet-kah.html#kah-ac1101">
+                        Kart à Hélice — analyse fonctionnelle émetteur/récepteur
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+              <details class="ac-item">
+                <summary>
+                  AC11.02 — Réaliser un prototype pour des solutions techniques matérielles et/ou logicielles
+                </summary>
+
+                <div class="ac-content">
+                  <ul class="criteria-list">
+                    <li>
+                      Dimensionner les composants et justifier les choix techniques.
+                    </li>
+
+                    <li>
+                      Réaliser un schéma électrique servant de référence au routage.
+                    </li>
+
+                    <li>
+                      Passer de la conception à une carte fabriquée et testable.
+                    </li>
+                  </ul>
+
+                  <div class="project-links">
+                    <span>Projets associés</span>
+
+                    <div class="project-link-list">
+                      <a href="pages/projet-rafale.html#rafale-ac1102">
+                        Carte lumière pour Rafale — routage et prototype
+                      </a>
+
+                      <a href="pages/projet-thermometre.html#tdb-ac1102">
+                        Thermomètre de bain — schéma, dimensionnement et prototype
+                      </a>
+
+                      <a href="pages/projet-kah.html#kah-ac1102">
+                        Kart à Hélice — conception du prototype
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+              <details class="ac-item">
+                <summary>
+                  AC11.03 — Rédiger un dossier de fabrication à partir d’un dossier de conception
+                </summary>
+
+                <div class="ac-content">
+                  <ul class="criteria-list">
+                    <li>
+                      Produire des documents techniques professionnels et exploitables.
+                    </li>
+
+                    <li>
+                      Organiser les informations de conception, fabrication et vérification.
+                    </li>
+
+                    <li>
+                      Adapter les documents aux attentes du projet et du client.
+                    </li>
+                  </ul>
+
+                  <div class="project-links">
+                    <span>Projets associés</span>
+
+                    <div class="project-link-list">
+                      <a href="pages/projet-thermometre.html#tdb-ac1103">
+                        Thermomètre de bain — DDC, DDF et DDV
+                      </a>
+
+                      <a href="pages/projet-kah.html#kah-ac1103">
+                        Kart à Hélice — DDF émetteur et récepteur
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="card competency-card">
+            <div class="competency-header">
+              <span class="competency-code">C2</span>
+
+              <div>
+                <p class="eyebrow">Compétence 2</p>
+
+                <h3>Vérifier la partie GEII d’un système industriel</h3>
+
+                <p>
+                  Appliquer une démarche d’essais, repérer les problèmes
+                  et expliquer les dysfonctionnements.
+                </p>
+              </div>
+            </div>
+
+            <div class="ac-list">
+              <details class="ac-item">
+                <summary>
+                  AC12.01 — Appliquer une procédure d’essais
+                </summary>
+
+                <div class="ac-content">
+                  <ul class="criteria-list">
+                    <li>
+                      Vérifier le fonctionnement du système par rapport aux exigences.
+                    </li>
+
+                    <li>
+                      Utiliser les appareils ou conditions de test adaptés.
+                    </li>
+
+                    <li>
+                      Comparer les résultats obtenus aux seuils attendus.
+                    </li>
+                  </ul>
+
+                  <div class="project-links">
+                    <span>Projets associés</span>
+
+                    <div class="project-link-list">
+                      <a href="pages/projet-rafale.html#rafale-ac1201">
+                        Carte lumière pour Rafale — essais de fonctionnement
+                      </a>
+
+                      <a href="pages/projet-thermometre.html#tdb-ac1201">
+                        Thermomètre de bain — vérification des seuils de température
+                      </a>
+
+                      <a href="pages/projet-kah.html#kah-ac1201">
+                        Kart à Hélice — procédures d’essais
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+
+              <details class="ac-item">
+                <summary>
+                  AC12.02 — Identifier un dysfonctionnement
+                </summary>
+
+                <div class="ac-content">
+                  <ul class="criteria-list">
+                    <li>
+                      Repérer un comportement non conforme.
+                    </li>
+
+                    <li>
+                      Identifier si le problème vient du montage, de la mesure,
+                      du réglage ou des conditions de test.
+                    </li>
+
+                    <li>
+                      Proposer une solution cohérente pour poursuivre la vérification.
+                    </li>
+                  </ul>
+
+                  <div class="project-links">
+                    <span>Projets associés</span>
+
+                    <div class="project-link-list">
+                      <a href="pages/projet-rafale.html#rafale-ac1202">
+                        Carte lumière pour Rafale — difficultés de mesure
+                      </a>
+
+                      <a href="pages/projet-thermometre.html#tdb-ac1202">
+                        Thermomètre de bain — seuils décalés et étuve non homogène
+                      </a>
+
+                      <a href="pages/projet-kah.html#kah-ac1202">
+                        Kart à Hélice — identification des non-conformités
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
+```

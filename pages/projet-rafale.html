@@ -1,0 +1,832 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projet carte lumière pour Rafale miniature - Portfolio Diane Lanau BUT GEII." />
+  <title>Carte lumière pour Rafale miniature | Diane Lanau</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../script.js"></script>
+
+  <style>
+    :root {
+      --fond-page: #fffdfb;
+      --fond-doux: #fbf7f5;
+      --fond-carte: #ffffff;
+      --rose-poudre: #d7a7b3;
+      --rose-poudre-clair: #f7eef1;
+      --rose-poudre-fonce: #ad6f7f;
+      --bleu-geii: #24476f;
+      --bleu-geii-clair: #edf3f9;
+      --texte-principal: #1f2328;
+      --texte-secondaire: #4b5563;
+      --bordure: rgba(36, 71, 111, 0.13);
+      --ombre: 0 12px 28px rgba(31, 35, 40, 0.07);
+      --radius-grand: 20px;
+      --radius-moyen: 16px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body.project-page {
+      color: var(--texte-principal);
+      background: var(--fond-page);
+      line-height: 1.62;
+    }
+
+    .project-hero {
+      padding: 96px 0 44px;
+      background: linear-gradient(180deg, #fffdfb 0%, #fbf7f5 100%);
+    }
+
+    .project-hero-grid {
+      align-items: center;
+    }
+
+    .project-hero h1 {
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+      margin-bottom: 12px;
+    }
+
+    .project-hero p {
+      color: var(--texte-secondaire);
+    }
+
+    .project-cover {
+      border-radius: var(--radius-grand);
+      border: 1px solid var(--bordure);
+      box-shadow: var(--ombre);
+      max-height: 390px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .summary-grid {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .summary-card {
+      padding: 14px 16px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--bordure);
+      color: var(--bleu-geii);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(31, 35, 40, 0.05);
+    }
+
+    .case-section {
+      padding: 52px 0;
+    }
+
+    .anchor-section,
+    .skill-section {
+      scroll-margin-top: 90px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: 285px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .case-sidebar {
+      position: sticky;
+      top: 92px;
+      padding: 22px;
+      background: linear-gradient(135deg, #ffffff, var(--rose-poudre-clair));
+    }
+
+    .case-sidebar .number {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--bleu-geii);
+      color: white;
+      font-weight: 900;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    .case-sidebar h2 {
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .case-sidebar p {
+      color: var(--texte-secondaire);
+      font-size: 0.92rem;
+    }
+
+    .case-content {
+      display: grid;
+      gap: 18px;
+    }
+
+    .case-content > .card,
+    .section-card {
+      padding: 26px;
+    }
+
+    .case-content h3,
+    .section-card h3 {
+      font-size: 1.04rem;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .case-content p,
+    .section-card p,
+    .compact-list,
+    .action-list {
+      color: var(--texte-secondaire);
+    }
+
+    .section {
+      padding: 42px 0;
+    }
+
+    .project-container {
+      width: min(1080px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section-card {
+      border: 1px solid var(--bordure);
+      box-shadow: var(--ombre);
+      border-radius: var(--radius-grand);
+      background: white;
+    }
+
+    .skill-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .skill-code {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--bleu-geii);
+      color: white;
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-title h2 {
+      font-size: clamp(1.1rem, 2vw, 1.42rem);
+      letter-spacing: -0.025em;
+      margin: 0;
+    }
+
+    .content-flow {
+      display: grid;
+      gap: 16px;
+    }
+
+    .compact-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .compact-list li,
+    .action-list li {
+      margin-bottom: 7px;
+    }
+
+    .evidence-box {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: var(--radius-moyen);
+      border: 1px solid var(--bordure);
+      background: linear-gradient(135deg, var(--rose-poudre-clair), var(--bleu-geii-clair));
+    }
+
+    .evidence-box h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      color: var(--texte-principal);
+    }
+
+    .evidence-box p {
+      margin: 0;
+      color: var(--texte-secondaire);
+    }
+
+    .problem-solution {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .problem-solution article {
+      border: 1px solid var(--bordure);
+      border-radius: var(--radius-moyen);
+      padding: 18px;
+      background: #fff;
+    }
+
+    .image-row,
+    .image-suggestions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .photo-slot {
+      margin: 0;
+      border-radius: var(--radius-moyen);
+      overflow: hidden;
+      border: 1px solid var(--bordure);
+      background: #fff;
+    }
+
+    .photo-slot img {
+      display: block;
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .photo-slot figcaption {
+      padding: 10px 12px;
+      color: var(--texte-secondaire);
+      font-size: 0.86rem;
+    }
+
+    .image-placeholder {
+      min-height: 150px;
+      border-radius: var(--radius-moyen);
+      border: 1px dashed rgba(36, 71, 111, 0.24);
+      background: linear-gradient(135deg, rgba(247, 238, 241, 0.7), rgba(237, 243, 249, 0.75));
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 16px;
+      color: var(--texte-secondaire);
+      font-size: 0.9rem;
+    }
+
+    .two-soft-columns,
+    .transversal-grid,
+    .retrospective-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .gallery-item {
+      border: 1px solid var(--bordure);
+      border-radius: var(--radius-moyen);
+      overflow: hidden;
+      background: white;
+      cursor: pointer;
+      text-align: left;
+      padding: 0;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item span {
+      display: block;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+      color: var(--texte-secondaire);
+    }
+
+    .section-heading.center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .page-footer {
+      padding: 42px 0 70px;
+      text-align: center;
+    }
+
+    .page-footer a {
+      color: var(--bleu-geii);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .page-footer a:hover {
+      color: var(--rose-poudre-fonce);
+    }
+
+    @media (max-width: 900px) {
+      .case-grid,
+      .image-row,
+      .image-suggestions,
+      .two-soft-columns,
+      .transversal-grid,
+      .retrospective-grid,
+      .gallery,
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-sidebar {
+        position: static;
+      }
+
+      .project-hero {
+        padding-top: 80px;
+      }
+    }
+  </style>
+</head>
+
+<body class="project-page">
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navigation page projet">
+      <a class="logo" href="../index.html#accueil">← Diane Lanau</a>
+
+      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="../index.html#projets">Retour aux projets</a></li>
+        <li><a href="../index.html#competences">Retour compétences</a></li>
+        <li><a href="#presentation">Présentation</a></li>
+        <li><a href="#rafale-ac1102">Concevoir</a></li>
+        <li><a href="#rafale-ac1201">Vérifier</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================
+         HERO PAGE PROJET
+         Mise en page reprise du TDB.
+    ========================== -->
+    <section class="project-hero">
+      <div class="container project-hero-grid reveal">
+        <div>
+          <p class="eyebrow">Étude de cas SAE GEII</p>
+
+          <h1>Carte lumière pour Rafale miniature</h1>
+
+          <p class="hero-subtitle">
+            Découverte de la conception d’un circuit imprimé
+          </p>
+
+          <p>
+            Un projet réalisé en binôme pour découvrir les premières étapes d’un projet électronique :
+            comprendre une demande technique, réaliser le routage d’un circuit imprimé, fabriquer un prototype
+            et vérifier son fonctionnement.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="../index.html#projets">Retour au portfolio</a>
+            <a class="btn btn-secondary" href="#galerie">Voir la galerie</a>
+          </div>
+        </div>
+
+        <img
+          class="project-cover"
+          src="../assets/images/photos/rafale-cover.jpg"
+          alt="Image principale du projet carte lumière Rafale"
+        />
+      </div>
+
+      <div class="container summary-grid reveal">
+        <div class="summary-card">Binôme</div>
+        <div class="summary-card">SAE découverte</div>
+        <div class="summary-card">Circuit imprimé</div>
+        <div class="summary-card">ISIS & ARES</div>
+        <div class="summary-card">Tests & mesures</div>
+      </div>
+    </section>
+
+    <!-- =========================
+         1. PRÉSENTATION
+    ========================== -->
+    <section id="presentation" class="case-section">
+      <div class="container case-grid reveal">
+        <aside class="case-sidebar card">
+          <span class="number">1</span>
+          <p class="eyebrow">Présentation</p>
+          <h2>Comprendre le projet</h2>
+          <p>
+            Cette partie présente le contexte général du projet, son rôle dans la formation
+            et les limites de ce qui a réellement été travaillé.
+          </p>
+        </aside>
+
+        <div class="case-content">
+          <article class="card">
+            <h3>Contexte</h3>
+
+            <p>
+              Ce projet a été réalisé en binôme dans le cadre d’une SAE de première année en BUT GEII.
+              Il s’agissait avant tout d’un exercice de découverte : l’objectif était de comprendre
+              les étapes principales d’un projet de carte électronique, depuis le schéma et le routage
+              jusqu’à la fabrication et aux essais.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Objectifs du projet</h3>
+
+            <ul class="action-list">
+              <li>Découvrir la conception d’un circuit imprimé.</li>
+              <li>Utiliser ISIS et ARES pour passer du schéma au routage.</li>
+              <li>Fabriquer un prototype physique.</li>
+              <li>Réaliser les premières vérifications de fonctionnement.</li>
+              <li>Identifier et corriger des difficultés de fabrication ou de mesure.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Positionnement par rapport aux compétences</h3>
+
+            <p>
+              Le projet Rafale m’a surtout permis de découvrir les bases de la conception et de la vérification.
+              Il ne constitue pas une preuve principale pour la rédaction d’un DDC, DDF ou DDV complet,
+              ni pour une analyse fonctionnelle formalisée avec synoptique complet. Ces éléments sont davantage
+              développés dans le projet Thermomètre de bain.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Images à ajouter dans cette section</h3>
+
+            <div class="image-suggestions">
+              <figure class="photo-slot">
+                <img src="../assets/images/photos/rafale-circuit-fini.jpg" alt="Vue du circuit fini" />
+                <figcaption>Vue du circuit fini</figcaption>
+              </figure>
+
+              <figure class="photo-slot">
+                <img src="../assets/images/photos/rafale-pcb-3d.jpg" alt="Vue 3D du PCB" />
+                <figcaption>Vue 3D du PCB</figcaption>
+              </figure>
+
+              <figure class="photo-slot">
+                <img src="../assets/images/photos/rafale-schema-electrique.jpg" alt="Schéma électrique" />
+                <figcaption>Schéma électrique</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC11.02
+    ========================== -->
+    <section class="section skill-section" id="rafale-ac1102">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC11.02</span>
+            <h2>Réaliser un prototype pour des solutions techniques matérielles et/ou logicielles</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              Cette compétence a été travaillée à travers le routage du circuit imprimé and la fabrication
+              de la carte. À partir du schéma fourni, nous avons placé les composants, organisé les pistes
+              et préparé la carte pour obtenir un prototype exploitable.
+            </p>
+
+            <p>
+              Cette étape m’a permis de comprendre que la conception électronique ne se limite pas au schéma :
+              il faut aussi penser à la fabrication réelle, aux contraintes de placement, à la continuité des pistes
+              et à la précision nécessaire pendant l’assemblage.
+            </p>
+
+            <ul class="compact-list">
+              <li>Utilisation d’ISIS pour comprendre le schéma électrique.</li>
+              <li>Utilisation d’ARES pour réaliser le routage du PCB.</li>
+              <li>Placement des composants sur la carte.</li>
+              <li>Fabrication, perçage et soudure du circuit.</li>
+              <li>Correction de pistes endommagées pendant la fabrication.</li>
+            </ul>
+          </div>
+
+          <div class="evidence-box">
+            <h3>Ce que ce projet montre</h3>
+
+            <p>
+              Le projet montre une première capacité à passer d’une conception numérique à un objet physique.
+              Il s’agit cependant d’une compétence de découverte, moins complète que celle développée plus tard
+              dans le projet Thermomètre de bain.
+            </p>
+          </div>
+
+          <div class="image-row">
+            <figure class="photo-slot">
+              <img src="../assets/images/photos/rafale-ares.jpg" alt="Capture ARES" />
+              <figcaption>Routage ARES</figcaption>
+            </figure>
+
+            <figure class="photo-slot">
+              <img src="../assets/images/photos/rafale-soudure.jpg" alt="Soudure des composants" />
+              <figcaption>Soudure des composants</figcaption>
+            </figure>
+
+            <figure class="photo-slot">
+              <img src="../assets/images/photos/rafale-circuit-fini.jpg" alt="Carte terminée" />
+              <figcaption>Carte terminée</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC12.01
+    ========================== -->
+    <section class="section skill-section" id="rafale-ac1201">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC12.01</span>
+            <h2>Appliquer une procédure d’essais</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              Après la fabrication du prototype, nous avons réalisé des vérifications pour contrôler
+              le fonctionnement de la carte. Cette étape consistait à observer les LEDs, contrôler certaines tensions
+              et vérifier que la carte réagissait comme attendu.
+            </p>
+
+            <ul class="compact-list">
+              <li>Contrôle visuel du prototype terminé.</li>
+              <li>Vérification de la continuité de certaines connexions.</li>
+              <li>Utilisation du multimètre et de l’oscilloscope.</li>
+              <li>Observation du comportement de la carte.</li>
+              <li>Comparaison entre fonctionnement attendu et fonctionnement observé.</li>
+            </ul>
+          </div>
+
+          <div class="image-row">
+  <figure class="photo-slot">
+    <img src="../assets/images/photos/rafale-circuit-fini.jpg" alt="Carte terminée après vérification" />
+    <figcaption>Carte terminée</figcaption>
+  </figure>
+
+  <figure class="photo-slot">
+    <img src="../assets/images/photos/rafale-oscillo-apres.jpg" alt="Signal observé après réglage de l’oscilloscope" />
+    <figcaption>Signal observé après réglage</figcaption>
+  </figure>
+</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC12.02
+    ========================== -->
+    <section class="section skill-section" id="rafale-ac1202">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC12.02</span>
+            <h2>Identifier un dysfonctionnement</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              Deux types de difficultés ont été rencontrés : une difficulté liée à la fabrication,
+              avec des pistes endommagées pendant le perçage, et une difficulté de mesure liée au réglage
+              de l’oscilloscope. Ces problèmes m’ont appris qu’un dysfonctionnement ne vient pas toujours
+              du circuit lui-même : il peut aussi venir de la fabrication ou de la méthode de mesure.
+            </p>
+          </div>
+
+          <div class="problem-solution">
+            <article>
+              <h3>Problème de fabrication</h3>
+              <p>
+                Lors du perçage, le mandrin a endommagé certaines pistes, créant des microcoupures
+                ou des risques de mauvais contact.
+              </p>
+            </article>
+
+            <article>
+              <h3>Solution apportée</h3>
+              <p>
+                Nous avons repris les connexions pendant la soudure afin de rétablir la continuité électrique
+                et permettre au prototype de fonctionner correctement.
+              </p>
+            </article>
+
+            <article>
+              <h3>Problème de mesure</h3>
+              <p>
+                La lecture des signaux à l’oscilloscope était difficile à cause d’un mauvais réglage de l’appareil.
+                Le problème ne venait donc pas forcément de la carte.
+              </p>
+            </article>
+
+            <article>
+              <h3>Solution apportée</h3>
+              <p>
+                Avec l’aide des enseignants, nous avons corrigé les réglages afin d’obtenir une lecture exploitable
+                et de poursuivre la vérification.
+              </p>
+            </article>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         AC12.03
+    ========================== -->
+    <section class="section skill-section" id="rafale-ac1203">
+      <div class="project-container">
+        <article class="section-card">
+          <div class="skill-title">
+            <span class="skill-code">AC12.03</span>
+            <h2>Décrire les effets d’un dysfonctionnement</h2>
+          </div>
+
+          <div class="content-flow">
+            <p>
+              Le mauvais réglage de l’oscilloscope empêchait d’obtenir une lecture claire des signaux.
+              Cette situation m’a appris à distinguer un problème de circuit d’un problème de mesure.
+              Décrire le dysfonctionnement permet donc de mieux choisir la correction à apporter.
+            </p>
+
+            <p>
+              Les pistes endommagées, elles, avaient un effet direct sur la continuité électrique.
+              La correction par soudure a permis de rétablir les connexions nécessaires au fonctionnement
+              du prototype.
+            </p>
+          </div>
+
+          <div class="evidence-box">
+            <h3>Ce que j’ai retenu</h3>
+
+            <p>
+              Une vérification efficace ne consiste pas seulement à constater qu’un système ne fonctionne pas.
+              Il faut expliquer où se situe le problème, quelles sont ses conséquences, puis justifier la correction.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         COMPÉTENCES TRANSVERSALES
+    ========================== -->
+    <section class="case-section" id="competences-transversales">
+      <div class="container reveal">
+        <div class="section-heading center">
+          <p class="eyebrow">Compétences transversales</p>
+          <h2>Travail en binôme et communication technique</h2>
+
+          <p>
+            Ces compétences complètent les compétences techniques et montrent la démarche collective du projet.
+          </p>
+        </div>
+
+        <div class="transversal-grid">
+          <article class="card">
+            <h3>Travail en binôme</h3>
+
+            <p>
+              Le projet a été réalisé en binôme. Nous avons réparti les tâches, confronté nos choix
+              et avancé ensemble pendant la conception, la fabrication et la vérification.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Communication technique</h3>
+
+            <p>
+              Le projet m’a demandé d’expliquer les choix réalisés, de comprendre les consignes
+              et de présenter clairement les difficultés rencontrées.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         RETOUR D'EXPÉRIENCE
+    ========================== -->
+    <section class="case-section" id="retour-experience">
+      <div class="container reveal">
+        <div class="section-heading center">
+          <p class="eyebrow">Retour d’expérience</p>
+          <h2>Ce que ce projet m’a apporté</h2>
+        </div>
+
+        <div class="retrospective-grid">
+          <article class="card">
+            <h3>Ce qui m’a plu</h3>
+
+            <ul class="action-list">
+              <li>La découverte du routage de PCB.</li>
+              <li>Le passage d’un fichier numérique à une carte physique.</li>
+              <li>La soudure et les premières corrections concrètes.</li>
+              <li>La compréhension du lien entre conception et fabrication.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Ce que je ferais différemment</h3>
+
+            <ul class="action-list">
+              <li>Être plus rigoureuse pendant le perçage.</li>
+              <li>Anticiper davantage la phase de vérification.</li>
+              <li>Garder plus de temps pour corriger les problèmes.</li>
+              <li>Documenter plus précisément les essais réalisés.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         GALERIE
+    ========================== -->
+    <section class="case-section" id="galerie">
+      <div class="container reveal">
+        <div class="section-heading center">
+          <p class="eyebrow">Galerie</p>
+          <h2>Galerie du projet</h2>
+          <p>Remplace les images par tes vraies photos si besoin.</p>
+        </div>
+
+       <div class="gallery">
+  <button class="gallery-item">
+    <img src="../assets/images/photos/rafale-routage-final.jpg" alt="Vue du routage" />
+    <span>Vue du routage</span>
+  </button>
+
+  <button class="gallery-item">
+    <img src="../assets/images/photos/rafale-pcb-3d.jpg" alt="Vue 3D du PCB" />
+    <span>Vue 3D du PCB</span>
+  </button>
+
+  <button class="gallery-item">
+    <img src="../assets/images/photos/rafale-percage.jpg" alt="Perçage de la carte" />
+    <span>Perçage de la carte</span>
+  </button>
+
+  <button class="gallery-item">
+    <img src="../assets/images/photos/rafale-soudure.jpg" alt="Soudure des composants" />
+    <span>Soudure des composants</span>
+  </button>
+
+  <button class="gallery-item">
+    <img src="../assets/images/photos/rafale-circuit-fini.jpg" alt="Carte terminée" />
+    <span>Carte terminée</span>
+  </button>
+</div>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <div class="container">
+        <a href="../index.html#projets">← Retour aux projets</a>
+      </div>
+    </footer>
+  </main>
+
+  <button class="back-to-top" aria-label="Retour en haut de la page">↑</button>
+</body>
+</html>
+
+```
