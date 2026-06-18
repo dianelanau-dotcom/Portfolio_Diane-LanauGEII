@@ -60,9 +60,16 @@
       border-radius: var(--radius-grand);
       border: 1px solid var(--bordure);
       box-shadow: var(--ombre);
-      max-height: 390px;
+      aspect-ratio: 16 / 10;
+      height: clamp(240px, 32vw, 390px);
       object-fit: cover;
       width: 100%;
+    }
+
+    .project-cover.full-media {
+      object-fit: contain;
+      object-position: center;
+      background: var(--bleu-geii-clair);
     }
 
     .summary-grid {
@@ -251,12 +258,19 @@
       margin-top: 22px;
     }
 
+    .image-row.centered-media,
+    .image-suggestions.centered-media {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 320px));
+      justify-content: center;
+    }
+
     .photo-slot {
       margin: 0;
       border-radius: var(--radius-moyen);
       overflow: hidden;
       border: 1px solid var(--bordure);
       background: #fff;
+      cursor: pointer;
     }
 
     .photo-slot img {
@@ -264,6 +278,19 @@
       width: 100%;
       height: 150px;
       object-fit: cover;
+    }
+
+    .photo-slot.full-media img {
+      height: 230px;
+      object-fit: contain;
+      object-position: center;
+      background: var(--bleu-geii-clair);
+    }
+
+    .gallery-item.full-media img {
+      object-fit: contain;
+      object-position: center;
+      background: var(--bleu-geii-clair);
     }
 
     .photo-slot figcaption {
@@ -400,8 +427,8 @@
         </div>
 
         <img
-          class="project-cover"
-          src="../assets/images/photos/project-thermometre-card.jpg"
+          class="project-cover full-media"
+          src="../assets/images/photos/tdb-carte-complete-horizontal.png"
           alt="Image principale du projet thermomètre de bain avec LEDs"
         />
       </div>
@@ -446,7 +473,7 @@
             <h3>Seuils de fonctionnement</h3>
             <ul class="action-list">
               <li>LED bleue : eau froide, température inférieure à 36 °C.</li>
-              <li>LED verte : eau tiède, température comprise entre 36 °C and 39 °C.</li>
+              <li>LED verte : eau tiède, température comprise entre 36 °C et 39 °C.</li>
               <li>LED rouge : eau chaude, température supérieure à 39 °C.</li>
             </ul>
           </article>
@@ -455,9 +482,9 @@
 
 
 
-<figure class="photo-slot">
-  <img src="../assets/images/photos/tdb-test-leds.jpg" alt="Validation des seuils de température" />
-  <figcaption>Simulation par étuve</figcaption>
+<figure class="photo-slot full-media">
+  <img src="../assets/images/photos/tdb-carte-complete-horizontal.png" alt="Carte terminée du thermomètre de bain" />
+  <figcaption>Carte terminée</figcaption>
 </figure>
         </div>
       </div>
@@ -498,7 +525,7 @@
          
      
 
-          <div class="image-row">
+          <div class="image-row centered-media">
   <figure class="photo-slot">
     <img src="../assets/images/photos/tdb-schema-electrique.png" alt="Architecture du thermomètre" />
     <figcaption>Schéma électrique</figcaption>
@@ -550,17 +577,12 @@
             </p>
           </div>
 
-         <div class="image-row">
-  <figure class="photo-slot">
-    <img src="../assets/images/photos/tdb-schema-electrique.png" alt="Schéma électrique" />
-    <figcaption>Schéma électrique</figcaption>
-  </figure>
-
-  <figure class="photo-slot">
-    <img src="../assets/images/photos/tdb-carte-complete.jpg" alt="Carte fabriquée" />
-    <figcaption>Carte fabriquée</figcaption>
-  </figure>
-</div>
+          <div class="image-row centered-media">
+            <figure class="photo-slot full-media">
+              <img src="../assets/images/photos/tdb-routage.png" alt="Routage du circuit" />
+              <figcaption>Routage du circuit</figcaption>
+            </figure>
+          </div>
         </article>
       </div>
     </section>
@@ -599,12 +621,6 @@
 
         
 
-         <div class="image-row">
-  <figure class="photo-slot">
-    <img src="../assets/images/photos/tdb-test-leds.jpg" alt="Validation des seuils thermiques" />
-    <figcaption>Simulation par étuve</figcaption>
-  </figure>
-</div>
         </article>
       </div>
     </section>
@@ -635,7 +651,12 @@
             </ul>
           </div>
 
-          
+          <div class="image-row centered-media">
+            <figure class="photo-slot full-media">
+              <img src="../assets/images/photos/tdb-simulation-etuve-horizontal.png" alt="Simulation par étuve" />
+              <figcaption>Simulation par étuve</figcaption>
+            </figure>
+          </div>
         </article>
       </div>
     </section>
@@ -694,11 +715,11 @@
             </article>
           </div>
 
-          <div class="image-row">
+          <div class="image-row centered-media">
   <figure class="photo-slot">
-    <img src="../assets/images/photos/tdb-etuve.jpg"
-         alt="Simulation par étuve" />
-    <figcaption>Simulation par étuve</figcaption>
+    <img src="../assets/images/photos/tdb-soudure-detail.jpg"
+         alt="Détail de soudure du prototype" />
+    <figcaption>Détail de soudure</figcaption>
   </figure>
 </div>
         </article>
@@ -817,29 +838,35 @@
       <div class="container reveal">
         <div class="section-heading center">
           <p class="eyebrow">Galerie</p>
-          <h2>Images à ajouter</h2>
-          <p>Remplace les blocs ci-dessous par tes vraies photos du projet.</p>
+          <h2>Galerie du projet</h2>
         </div>
-         <figure class="photo-slot">
-    <img src="../assets/images/photos/tdb-schema-electrique.jpg" alt="Schéma électrique" />
-    <figcaption>Schéma électrique</figcaption>
-  </figure>
 
-  <figure class="photo-slot">
-    <img src="../assets/images/photos/tdb-routage.jpg" alt="Routage du circuit" />
-    <figcaption>Routage</figcaption>
-  </figure>
+        <div class="gallery">
+          <button class="gallery-item">
+            <img src="../assets/images/photos/tdb-schema-electrique.png" alt="Schéma électrique du thermomètre" />
+            <span>Schéma électrique</span>
+          </button>
 
-  <figure class="photo-slot">
-    <img src="../assets/images/photos/tdb-etuve.jpg" alt="Simulation par étuve" />
-    <figcaption>Simulation par étuve</figcaption>
-  </figure>
+          <button class="gallery-item">
+            <img src="../assets/images/photos/tdb-routage.png" alt="Routage du circuit du thermomètre" />
+            <span>Routage</span>
+          </button>
 
-  <figure class="photo-slot">
-    <img src="../assets/images/photos/tdb-ddv.jpg" alt="Document de vérification" />
-    <figcaption>DDV</figcaption>
-  </figure>
-</div>
+          <button class="gallery-item full-media">
+            <img src="../assets/images/photos/tdb-simulation-etuve-horizontal.png" alt="Simulation par étuve" />
+            <span>Simulation par étuve</span>
+          </button>
+
+          <button class="gallery-item full-media">
+            <img src="../assets/images/photos/tdb-carte-complete-horizontal.png" alt="Carte fabriquée du thermomètre" />
+            <span>Carte fabriquée</span>
+          </button>
+
+          <button class="gallery-item">
+            <img src="../assets/images/photos/tdb-soudure-detail.jpg" alt="Détail de soudure du prototype" />
+            <span>Détail de soudure</span>
+          </button>
+        </div>
       </div>
     </section>
   </main>
@@ -847,5 +874,3 @@
   <button class="back-to-top" aria-label="Retour en haut de la page">↑</button>
 </body>
 </html>
-
-```

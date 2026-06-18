@@ -11,6 +11,16 @@ const backToTop = document.querySelector('.back-to-top');
 const revealElements = document.querySelectorAll('.reveal');
 const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
 
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+if (!window.location.hash) {
+  window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+  });
+}
+
 // =========================
 // MENU BURGER MOBILE
 // =========================
@@ -89,7 +99,7 @@ sections.forEach((section) => activeLinkObserver.observe(section));
 // GALERIE AVEC ZOOM / LIGHTBOX
 // Cette partie fonctionne seulement si la page contient une galerie.
 // =========================
-const galleryItems = document.querySelectorAll('.gallery-item');
+const galleryItems = document.querySelectorAll('.gallery-item, .photo-slot');
 
 if (galleryItems.length > 0) {
   const lightbox = document.createElement('div');
@@ -110,7 +120,8 @@ if (galleryItems.length > 0) {
   galleryItems.forEach((item) => {
     item.addEventListener('click', () => {
       const img = item.querySelector('img');
-      const caption = item.querySelector('span')?.textContent || img.alt;
+      if (!img) return;
+      const caption = item.querySelector('span')?.textContent || item.querySelector('figcaption')?.textContent || img.alt;
 
       lightboxImage.src = img.src;
       lightboxImage.alt = img.alt;

@@ -60,9 +60,16 @@
       border-radius: var(--radius-grand);
       border: 1px solid var(--bordure);
       box-shadow: var(--ombre);
-      max-height: 390px;
+      aspect-ratio: 16 / 10;
+      height: clamp(240px, 32vw, 390px);
       object-fit: cover;
       width: 100%;
+    }
+
+    .project-cover.full-media {
+      object-fit: contain;
+      object-position: center;
+      background: var(--bleu-geii-clair);
     }
 
     .summary-grid {
@@ -251,12 +258,19 @@
       margin-top: 22px;
     }
 
+    .image-row.centered-media,
+    .image-suggestions.centered-media {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 320px));
+      justify-content: center;
+    }
+
     .photo-slot {
       margin: 0;
       border-radius: var(--radius-moyen);
       overflow: hidden;
       border: 1px solid var(--bordure);
       background: #fff;
+      cursor: pointer;
     }
 
     .photo-slot img {
@@ -264,6 +278,19 @@
       width: 100%;
       height: 150px;
       object-fit: cover;
+    }
+
+    .photo-slot.full-media img {
+      height: 230px;
+      object-fit: contain;
+      object-position: center;
+      background: var(--bleu-geii-clair);
+    }
+
+    .gallery-item.full-media img {
+      object-fit: contain;
+      object-position: center;
+      background: var(--bleu-geii-clair);
     }
 
     .photo-slot figcaption {
@@ -397,7 +424,7 @@
         </div>
 
         <img
-          class="project-cover"
+          class="project-cover full-media"
           src="../assets/images/photos/project-kart-card.jpg"
           alt="Image principale du projet Kart à Hélice"
         />
@@ -459,7 +486,19 @@
             </p>
           </article>
 
-         
+          <article class="card">
+            <div class="image-row centered-media">
+              <figure class="photo-slot full-media">
+                <img src="../assets/images/photos/kah-vue-kart.jpg" alt="Vue du kart à hélice" />
+                <figcaption>Vue du kart</figcaption>
+              </figure>
+
+              <figure class="photo-slot full-media">
+                <img src="../assets/images/photos/kah-carte-emetteur-180.jpg" alt="Carte électronique du kart à hélice" />
+                <figcaption>Carte électronique</figcaption>
+              </figure>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -498,9 +537,12 @@
             </ul>
           </div>
 
-          
-
-         
+          <div class="image-row centered-media">
+            <figure class="photo-slot full-media">
+              <img src="../assets/images/photos/kah-vue-kart.jpg" alt="Kart miniature et architecture générale" />
+              <figcaption>Produit complet</figcaption>
+            </figure>
+          </div>
         </article>
       </div>
     </section>
@@ -550,7 +592,22 @@
             </p>
           </div>
 
-          
+          <div class="image-row centered-media">
+            <figure class="photo-slot full-media">
+              <img src="../assets/images/photos/kah-carte-emetteur-180.jpg" alt="Carte émetteur du kart à hélice" />
+              <figcaption>Carte émetteur</figcaption>
+            </figure>
+
+            <figure class="photo-slot full-media">
+              <img src="../assets/images/photos/kah-controle-carte.jpg" alt="Implémentation des composants du kart" />
+              <figcaption>Implémentation des composants</figcaption>
+            </figure>
+
+            <figure class="photo-slot full-media">
+              <img src="../assets/images/photos/kah-assemblage.jpg" alt="Dessoudage sur le prototype du kart" />
+              <figcaption>Dessoudage</figcaption>
+            </figure>
+          </div>
         </article>
       </div>
     </section>
@@ -590,9 +647,6 @@
             </ul>
           </div>
 
-        
-
-          
         </article>
       </div>
     </section>
@@ -631,9 +685,12 @@
             </ul>
           </div>
 
-          
-
-          
+          <div class="image-row centered-media">
+            <figure class="photo-slot full-media">
+              <img src="../assets/images/photos/kah-oscilloscope.jpg" alt="Lecture de trame à l'oscilloscope pendant les essais" />
+              <figcaption>Lecture de trame</figcaption>
+            </figure>
+          </div>
         </article>
       </div>
     </section>
@@ -659,7 +716,7 @@
 
             <p>
               Le projet a aussi demandé de savoir distinguer les problèmes critiques des écarts acceptables.
-              Ici, la non-conformitée dimensionnelle n’empêchait pas le kart de fonctionner, mais elle devait
+              Ici, la non-conformité dimensionnelle n’empêchait pas le kart de fonctionner, mais elle devait
               tout de même être signalée dans une logique de production plus rigoureuse.
             </p>
           </div>
@@ -702,7 +759,6 @@
             </article>
           </div>
 
-          
         </article>
       </div>
     </section>
@@ -732,7 +788,6 @@
             </p>
           </div>
 
-         
         </article>
       </div>
     </section>
@@ -830,12 +885,35 @@
       <div class="container reveal">
         <div class="section-heading center">
           <p class="eyebrow">Galerie</p>
-
-        
-
-         
+          <h2>Galerie du projet</h2>
         </div>
 
+        <div class="gallery">
+          <button class="gallery-item full-media">
+            <img src="../assets/images/photos/kah-vue-kart.jpg" alt="Vue du kart à hélice" />
+            <span>Vue du kart</span>
+          </button>
+
+          <button class="gallery-item full-media">
+            <img src="../assets/images/photos/kah-carte-emetteur-180.jpg" alt="Carte émetteur du kart" />
+            <span>Carte émetteur</span>
+          </button>
+
+          <button class="gallery-item">
+            <img src="../assets/images/photos/kah-oscilloscope.jpg" alt="Lecture de trame à l'oscilloscope" />
+            <span>Lecture de trame</span>
+          </button>
+
+          <button class="gallery-item full-media">
+            <img src="../assets/images/photos/kah-controle-carte.jpg" alt="Implémentation des composants" />
+            <span>Implémentation des composants</span>
+          </button>
+
+          <button class="gallery-item full-media">
+            <img src="../assets/images/photos/kah-assemblage.jpg" alt="Dessoudage sur le prototype" />
+            <span>Dessoudage</span>
+          </button>
+        </div>
       </div>
     </section>
   </main>
@@ -848,5 +926,3 @@
   </footer>
 </body>
 </html>
-
-```
