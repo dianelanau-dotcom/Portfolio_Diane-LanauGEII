@@ -60,9 +60,16 @@
       border-radius: var(--radius-grand);
       border: 1px solid var(--bordure);
       box-shadow: var(--ombre);
-      max-height: 390px;
+      aspect-ratio: 16 / 10;
+      height: clamp(240px, 32vw, 390px);
       object-fit: cover;
       width: 100%;
+    }
+
+    .project-cover.full-media {
+      object-fit: contain;
+      object-position: center;
+      background: var(--bleu-geii-clair);
     }
 
     .summary-grid {
@@ -251,6 +258,12 @@
       margin-top: 22px;
     }
 
+    .image-row.centered-media,
+    .image-suggestions.centered-media {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 300px));
+      justify-content: center;
+    }
+
     .photo-slot {
       margin: 0;
       border-radius: var(--radius-moyen);
@@ -264,6 +277,19 @@
       width: 100%;
       height: 150px;
       object-fit: cover;
+    }
+
+    .photo-slot.full-card img {
+      height: 210px;
+      object-fit: contain;
+      object-position: center;
+      background: var(--bleu-geii-clair);
+    }
+
+    .photo-slot.solder-focus img {
+      height: 190px;
+      object-fit: cover;
+      object-position: 50% 64%;
     }
 
     .photo-slot figcaption {
@@ -314,6 +340,16 @@
       height: 160px;
       object-fit: cover;
       display: block;
+    }
+
+    .gallery-item.full-card img {
+      object-fit: contain;
+      object-position: center;
+      background: var(--bleu-geii-clair);
+    }
+
+    .gallery-item.solder-focus img {
+      object-position: 50% 64%;
     }
 
     .gallery-item span {
@@ -418,7 +454,7 @@
         </div>
 
         <img
-          class="project-cover"
+          class="project-cover full-media"
           src="../assets/images/photos/rafale-cover.jpg"
           alt="Image principale du projet carte lumière Rafale"
         />
@@ -475,18 +511,15 @@
           <article class="card">
          
 
-            <div class="image-suggestions">
-              <figure class="photo-slot">
-                <img src="../assets/images/photos/rafale-circuit-fini.jpg" alt="Vue du circuit fini" />
+            <div class="image-suggestions centered-media">
+              <figure class="photo-slot full-card">
+                <img src="../assets/images/photos/rafale-circuit-fini-horizontal.jpg" alt="Vue du circuit fini" />
                 <figcaption>Vue du circuit fini</figcaption>
               </figure>
 
               <figure class="photo-slot">
                 <img src="../assets/images/photos/rafale-pcb-3d.jpg" alt="Vue 3D du PCB" />
                 <figcaption>Vue 3D du PCB</figcaption>
-              </figure>
-
-          
               </figure>
             </div>
           </article>
@@ -507,7 +540,7 @@
 
           <div class="content-flow">
             <p>
-              Cette compétence a été travaillée à travers le routage du circuit imprimé and la fabrication
+              Cette compétence a été travaillée à travers le routage du circuit imprimé et la fabrication
               de la carte. À partir du schéma fourni, nous avons placé les composants, organisé les pistes
               et préparé la carte pour obtenir un prototype exploitable.
             </p>
@@ -527,20 +560,15 @@
             </ul>
           </div>
 
-          <div class="image-row">
+          <div class="image-row centered-media">
             <figure class="photo-slot">
               <img src="../assets/images/photos/rafale-ares.jpg" alt="Capture ARES" />
               <figcaption>Routage ARES</figcaption>
             </figure>
 
-            <figure class="photo-slot">
+            <figure class="photo-slot solder-focus">
               <img src="../assets/images/photos/rafale-soudure.jpg" alt="Soudure des composants" />
               <figcaption>Soudure des composants</figcaption>
-            </figure>
-
-            <figure class="photo-slot">
-              <img src="../assets/images/photos/rafale-circuit-fini.jpg" alt="Carte terminée" />
-              <figcaption>Carte terminée</figcaption>
             </figure>
           </div>
         </article>
@@ -574,17 +602,12 @@
             </ul>
           </div>
 
-          <div class="image-row">
-  <figure class="photo-slot">
-    <img src="../assets/images/photos/rafale-circuit-fini.jpg" alt="Carte terminée après vérification" />
-    <figcaption>Carte terminée</figcaption>
-  </figure>
-
-  <figure class="photo-slot">
-    <img src="../assets/images/photos/rafale-oscillo-apres.jpg" alt="Signal observé après réglage de l’oscilloscope" />
-    <figcaption>Signal observé après réglage</figcaption>
-  </figure>
-</div>
+          <div class="image-row centered-media">
+            <figure class="photo-slot">
+              <img src="../assets/images/photos/rafale-oscillo-apres.jpg" alt="Signal observé après réglage de l’oscilloscope" />
+              <figcaption>Signal observé après réglage</figcaption>
+            </figure>
+          </div>
         </article>
       </div>
     </section>
@@ -609,39 +632,6 @@
             </p>
           </div>
 
-          <div class="problem-solution">
-            <article>
-              <h3>Problème de fabrication</h3>
-              <p>
-                Lors du perçage, le mandrin a endommagé certaines pistes, créant des microcoupures
-                ou des risques de mauvais contact.
-              </p>
-            </article>
-
-            <article>
-              <h3>Solution apportée</h3>
-              <p>
-                Nous avons repris les connexions pendant la soudure afin de rétablir la continuité électrique
-                et permettre au prototype de fonctionner correctement.
-              </p>
-            </article>
-
-            <article>
-              <h3>Problème de mesure</h3>
-              <p>
-                La lecture des signaux à l’oscilloscope était difficile à cause d’un mauvais réglage de l’appareil.
-                Le problème ne venait donc pas forcément de la carte.
-              </p>
-            </article>
-
-            <article>
-              <h3>Solution apportée</h3>
-              <p>
-                Avec l’aide des enseignants, nous avons corrigé les réglages afin d’obtenir une lecture exploitable
-                et de poursuivre la vérification.
-              </p>
-            </article>
-          </div>
         </article>
       </div>
     </section>
@@ -759,13 +749,12 @@
         <div class="section-heading center">
           <p class="eyebrow">Galerie</p>
           <h2>Galerie du projet</h2>
-          <p>Remplace les images par tes vraies photos si besoin.</p>
         </div>
 
        <div class="gallery">
   <button class="gallery-item">
-    <img src="../assets/images/photos/rafale-routage-final.jpg" alt="Vue du routage" />
-    <span>Vue du routage</span>
+    <img src="../assets/images/photos/rafale-ares.jpg" alt="Routage ARES" />
+    <span>Routage ARES</span>
   </button>
 
   <button class="gallery-item">
@@ -778,14 +767,19 @@
     <span>Perçage de la carte</span>
   </button>
 
-  <button class="gallery-item">
+  <button class="gallery-item solder-focus">
     <img src="../assets/images/photos/rafale-soudure.jpg" alt="Soudure des composants" />
     <span>Soudure des composants</span>
   </button>
 
-  <button class="gallery-item">
-    <img src="../assets/images/photos/rafale-circuit-fini.jpg" alt="Carte terminée" />
+  <button class="gallery-item full-card">
+    <img src="../assets/images/photos/rafale-circuit-fini-horizontal.jpg" alt="Carte terminée" />
     <span>Carte terminée</span>
+  </button>
+
+  <button class="gallery-item">
+    <img src="../assets/images/photos/rafale-oscillo-apres.jpg" alt="Signal observé après réglage" />
+    <span>Signal observé après réglage</span>
   </button>
 </div>
       </div>
@@ -801,5 +795,3 @@
   <button class="back-to-top" aria-label="Retour en haut de la page">↑</button>
 </body>
 </html>
-
-```
